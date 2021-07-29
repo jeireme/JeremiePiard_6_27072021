@@ -1,0 +1,94 @@
+@import "utils/variables";
+@import "utils/mixins";
+
+body {
+  font-family: "DM Sans", sans-serif;
+  max-width: 1230px;
+  margin: auto;
+}
+
+.header {
+  @include flexRowBetween;
+  color: $rust;
+  height: 60px;
+  margin-bottom: 75px;
+  &__logo {
+    width: 215px;
+    margin-right: -6px;
+  }
+  &__title {
+    font-size: 2.25rem;
+    font-weight: normal;
+    white-space: nowrap;
+  }
+}
+
+.skip {
+  @include flexCenter;
+  margin-top: 5px;
+  &__btn {
+    border: none;
+    text-decoration: none;
+    color: black;
+    border-radius: 6px;
+    padding: 4px 11px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    background-color: $light-rust;
+  }
+}
+
+.filters {
+  @include flexCenter;
+  list-style: none;
+  color: $rust;
+  padding: 0;
+  margin: 0;
+  &__link {
+    border: 1px solid rgb(233, 228, 228);
+    border-radius: 20px;
+    padding: 2px 5px;
+    margin: 0px 3px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+}
+
+.photographers {
+  @include flexRowBetween;
+  &__profile {
+    @include flexColumnBetween;
+    // flex-basis: 33%; --> on va apprendre display grid, ça sera mieux
+    margin: 25px 0;
+    &__picture {
+      height: 202px;
+      margin: auto;
+    }
+    &__name {
+      margin: 20px auto 0px auto;
+      color: $orange-rust;
+      font-weight: normal;
+      font-size: 2.3rem;
+    }
+    &__location {
+      margin: auto;
+      color: $rust;
+      font-size: 0.8em;
+    }
+    &__biography {
+      margin: 3px auto;
+      font-size: 0.65em;
+    }
+    &__tariff {
+      margin: 0px auto 5px auto;
+      color: grey;
+      font-size: 0.59em;
+    }
+    &--id {
+      @include flexColumnCenter;
+    }
+    &--infos {
+      @include flexColumnCenter;
+    }
+  }
+}

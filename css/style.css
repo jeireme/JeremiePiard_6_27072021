@@ -1,2 +1,106 @@
+body {
+  font-family: "DM Sans", sans-serif;
+  max-width: 1230px;
+  margin: auto;
+}
 
-/*# sourceMappingURL=style.css.map *//*# sourceMappingURL=style.css.map */
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: #901C1C;
+  height: 60px;
+  margin-bottom: 75px;
+}
+.header__logo {
+  width: 215px;
+  margin-right: -6px;
+}
+.header__title {
+  font-size: 2.25rem;
+  font-weight: normal;
+  white-space: nowrap;
+}
+
+.skip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
+.skip__btn {
+  border: none;
+  text-decoration: none;
+  color: black;
+  border-radius: 6px;
+  padding: 4px 11px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background-color: #DB8878;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  color: #901C1C;
+  padding: 0;
+  margin: 0;
+}
+.filters__link {
+  border: 1px solid #e9e4e4;
+  border-radius: 20px;
+  padding: 2px 5px;
+  margin: 0px 3px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.photographers {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.photographers__profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 25px 0;
+}
+.photographers__profile__picture {
+  height: 202px;
+  margin: auto;
+}
+.photographers__profile__name {
+  margin: 20px auto 0px auto;
+  color: #CC5841;
+  font-weight: normal;
+  font-size: 2.3rem;
+}
+.photographers__profile__location {
+  margin: auto;
+  color: #901C1C;
+  font-size: 0.8em;
+}
+.photographers__profile__biography {
+  margin: 3px auto;
+  font-size: 0.65em;
+}
+.photographers__profile__tariff {
+  margin: 0px auto 5px auto;
+  color: grey;
+  font-size: 0.59em;
+}
+.photographers__profile--id {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.photographers__profile--infos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}/*# sourceMappingURL=style.css.map */

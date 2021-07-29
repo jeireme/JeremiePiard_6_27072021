@@ -1,15 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/f98c9ed341.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/png" href="img/Logo/favicon.png"/>
-    <title>FisheEye fait peau neuve !</title>
+    <link rel="icon" type="image/png" href="img/Logo/favicon.png" />
+    <title>FisheEye | Accueil</title>
 </head>
+
 <body>
-    <h1>Notre site est actuellement en construction. Du nouveau arrive très prochainement !</h1>
+    <div class="skip">
+        <a href="#content" class="skip__btn">Passer au contenu</a>
+    </div>
+    <header class="header">
+        <a href="index.html"><img src="img/Logo/logo.svg" class="header__logo" alt="Logo du site FishEye"></a>
+        <ul class="filters">
+            <li class="filters__link">#Portrait</li>
+            <li class="filters__link">#Art</li>
+            <li class="filters__link">#Fashion</li>
+            <li class="filters__link">#Architecture</li>
+            <li class="filters__link">#Travel</li>
+            <li class="filters__link">#Sport</li>
+            <li class="filters__link">#Animals</li>
+            <li class="filters__link">#Events</li>
+        </ul>
+        <h1 class="header__title">Nos photographes</h1>
+    </header>
+
+    <main id="content">
+        <section class="photographers">
+            <div class="photographers__profile">
+                <div class="photographers__profile--id">
+                    <img src="img/Photographers-md/MimiKeel.png" class="photographers__profile__picture" alt="Photo de profil de Mimi Keel">
+                    <h2 class="photographers__profile__name">Mimi Keel</h2>
+                </div>
+                <div class="photographers__profile--infos">
+                    <p class="photographers__profile__location">London, UK</p>
+                    <p class="photographers__profile__biography">Voir le beau dans le quotidien</p>
+                    <p class="photographers__profile__tariff">400€/jour</p>
+                </div>
+                <ul class="filters">
+                    <li class="filters__link">#portrait</li>
+                    <li class="filters__link">#events</li>
+                    <li class="filters__link">#travel</li>
+                    <li class="filters__link">#animals</li>
+                </ul>
+            </div>
+
+            <div class="photographers__profile">
+                <div class="photographers__profile--infos">
+                    <img src="img/Photographers-md/EllieRoseWilkens.png" class="photographers__profile__picture" alt="Photo de profil de Ellie-Rose Wilkens">
+                    <h2 class="photographers__profile__name">Ellie-Rose Wilkens</h2>
+                </div>
+                <div class="photographers__profile--infos">
+                    <p class="photographers__profile__location">Paris, France</p>
+                    <p class="photographers__profile__biography">Travaille sur des compositions complexes</p>
+                    <p class="photographers__profile__tariff">250€/jour</p>
+                </div>
+                <ul class="filters">
+                    <li class="filters__link">#sports</li>
+                    <li class="filters__link">#architecture</li>
+                </ul>
+            </div>
+
+            <div class="photographers__profile">
+                <div class="photographers__profile--infos">
+                    <img src="img/Photographers-md/TracyGalindo.png" class="photographers__profile__picture" alt="Photo de profil de Tracy Galindo">
+                    <h2 class="photographers__profile__name">Tracy Galindo</h2>
+                </div>
+                <div class="photographers__profile--infos">
+                    <p class="photographers__profile__location">Montreal, Canada</p>
+                    <p class="photographers__profile__biography">Photographe freelance</p>
+                    <p class="photographers__profile__tariff">500€/jour</p>
+                </div>
+                <ul class="filters">
+                    <li class="filters__link">#art</li>
+                    <li class="filters__link">#fashion</li>
+                    <li class="filters__link">#events</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Deuxième ligne -->
+
+        <section class="photographers">
+            <div class="photographers__profile">
+                <div class="photographers__profile--id">
+                    <img src="img/Photographers-md/NabeelBradford.png" class="photographers__profile__picture" alt="Photo de profil de Nabeel Bradford">
+                    <h2 class="photographers__profile__name">Nabeel Bradford</h2>
+                </div>
+                <div class="photographers__profile--infos">
+                    <p class="photographers__profile__location">Mexico City, Mexico</p>
+                    <p class="photographers__profile__biography">Je vais toujours de l'avant</p>
+                    <p class="photographers__profile__tariff">350€/jour</p>
+                </div>
+                <ul class="filters">
+                    <li class="filters__link">#travel</li>
+                    <li class="filters__link">#portraits</li>
+                </ul>
+            </div>
+
+            <div class="photographers__profile">
+                <div class="photographers__profile--infos">
+                    <img src="img/Photographers-md/RhodeDubois.png" class="photographers__profile__picture" alt="Photo de profil de Rhode Dubois">
+                    <h2 class="photographers__profile__name">Rhode Dubois</h2>
+                </div>
+                <div class="photographers__profile--infos">
+                    <p class="photographers__profile__location">Barcelona, Spain</p>
+                    <p class="photographers__profile__biography">Créatrice de souvenirs</p>
+                    <p class="photographers__profile__tariff">375€/jour</p>
+                </div>
+                <ul class="filters">
+                    <li class="filters__link">#sport</li>
+                    <li class="filters__link">#fashion</li>
+                    <li class="filters__link">#events</li>
+                    <li class="filters__link">#animals</li>
+                </ul>
+            </div>
+
+            <div class="photographers__profile">
+                <div class="photographers__profile--infos">
+                    <img src="img/Photographers-md/MarcelNikolic.png" class="photographers__profile__picture" alt="Photo de profil de Marcel Nikolic">
+                    <h2 class="photographers__profile__name">Marcel Nikolic</h2>
+                </div>
+                <div class="photographers__profile--infos">
+                    <p class="photographers__profile__location">Berlin, Germany</p>
+                    <p class="photographers__profile__biography">Toujours à la recherche de LA photo</p>
+                    <p class="photographers__profile__tariff">300€/jour</p>
+                </div>
+                <ul class="filters">
+                    <li class="filters__link">#travel</li>
+                    <li class="filters__link">#architecture</li>
+                </ul>
+            </div>
+        </section>
+    </main>
 </body>
+
 </html>
