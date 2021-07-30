@@ -58,49 +58,63 @@ body {
   font-weight: 600;
 }
 
-.photographers {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+.main {
+  display: grid;
+  grid-template: 1fr 1fr/1fr 1fr 1fr;
+  grid-row-gap: 50px;
 }
-.photographers__profile {
+
+.photographer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 25px 0;
 }
-.photographers__profile__picture {
+.photographer--left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.photographer--middle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.photographer--right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profile__picture {
+  line-height: 0;
+}
+.profile__picture > img {
   height: 202px;
   margin: auto;
 }
-.photographers__profile__name {
+.profile__name {
   margin: 20px auto 0px auto;
   color: #CC5841;
   font-weight: normal;
   font-size: 2.3rem;
+  white-space: nowrap;
 }
-.photographers__profile__location {
+.profile__location {
   margin: auto;
   color: #901C1C;
   font-size: 0.8em;
 }
-.photographers__profile__biography {
+.profile__biography {
   margin: 3px auto;
   font-size: 0.65em;
 }
-.photographers__profile__tariff {
+.profile__tariff {
   margin: 0px auto 5px auto;
   color: grey;
   font-size: 0.59em;
-}
-.photographers__profile--id {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.photographers__profile--infos {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }/*# sourceMappingURL=style.css.map */

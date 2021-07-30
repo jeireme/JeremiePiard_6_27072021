@@ -54,41 +54,53 @@ body {
   }
 }
 
-.photographers {
-  @include flexRowBetween;
-  &__profile {
-    @include flexColumnBetween;
-    // flex-basis: 33%; --> on va apprendre display grid, ça sera mieux
-    margin: 25px 0;
-    &__picture {
+.main {
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 1fr 1fr;
+  grid-row-gap: 50px;
+}
+
+.photographer {
+  @include flexColumnBetween;
+  &--left {
+    @include flexColumnStart;
+  }
+  &--middle {
+    @include flexColumnCenter;
+  }
+  &--right {
+    @include flexColumnEnd;
+  }
+}
+
+.profile {
+  @include flexColumnCenter;
+  &__picture {
+    line-height: 0;
+    > img {
       height: 202px;
       margin: auto;
     }
-    &__name {
-      margin: 20px auto 0px auto;
-      color: $orange-rust;
-      font-weight: normal;
-      font-size: 2.3rem;
-    }
-    &__location {
-      margin: auto;
-      color: $rust;
-      font-size: 0.8em;
-    }
-    &__biography {
-      margin: 3px auto;
-      font-size: 0.65em;
-    }
-    &__tariff {
-      margin: 0px auto 5px auto;
-      color: grey;
-      font-size: 0.59em;
-    }
-    &--id {
-      @include flexColumnCenter;
-    }
-    &--infos {
-      @include flexColumnCenter;
-    }
+  }
+  &__name {
+    margin: 20px auto 0px auto;
+    color: $orange-rust;
+    font-weight: normal;
+    font-size: 2.3rem;
+    white-space: nowrap;
+  }
+  &__location {
+    margin: auto;
+    color: $rust;
+    font-size: 0.8em;
+  }
+  &__biography {
+    margin: 3px auto;
+    font-size: 0.65em;
+  }
+  &__tariff {
+    margin: 0px auto 5px auto;
+    color: grey;
+    font-size: 0.59em;
   }
 }

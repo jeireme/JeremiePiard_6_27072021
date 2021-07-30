@@ -1,4 +1,3 @@
-// FLEXBOX
 @mixin flexCenter {
   display: flex;
   justify-content: center;
@@ -17,16 +16,28 @@
   align-items: center;
 }
 
+@mixin flexColumnStart {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 @mixin flexColumnCenter {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
 }
 
 @mixin flexColumnBetween {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+@mixin flexColumnEnd {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 @mixin flexRowBetween {
