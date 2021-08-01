@@ -78,6 +78,7 @@ body {
   &__picture {
     line-height: 0;
     > img {
+      border-radius: 50%;
       height: 202px;
       margin: auto;
     }

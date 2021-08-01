@@ -94,6 +94,7 @@ body {
   line-height: 0;
 }
 .profile__picture > img {
+  border-radius: 50%;
   height: 202px;
   margin: auto;
 }
