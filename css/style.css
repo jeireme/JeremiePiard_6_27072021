@@ -1,6 +1,5 @@
 body {
   font-family: "DM Sans", sans-serif;
-  max-width: 1230px;
   margin: auto;
 }
 
@@ -11,7 +10,8 @@ body {
   align-items: center;
   color: #901C1C;
   height: 60px;
-  margin-bottom: 75px;
+  width: 1230px;
+  margin: 0 auto 75px auto;
 }
 .header__logo {
   width: 215px;
@@ -44,24 +44,42 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  list-style: none;
   color: #901C1C;
-  padding: 0;
-  margin: 0;
 }
-.filters__link {
+.filters__tags {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+.filters__tags + label {
   border: 1px solid #e9e4e4;
   border-radius: 20px;
   padding: 2px 5px;
-  margin: 0px 3px;
   font-size: 0.75rem;
   font-weight: 600;
+}
+.filters__tags + label:hover {
+  border: 1px solid #DB8878;
+}
+.filters__tags:checked + label {
+  border: 1px solid #DB8878;
+  background-color: #fae7d7;
+}
+.filters__tags:checked + label:hover {
+  background-color: rgba(244, 165, 96, 0.931);
+  color: white;
+}
+
+.cursorPointer:hover {
+  cursor: pointer;
 }
 
 .main {
   display: grid;
   grid-template: 1fr 1fr/1fr 1fr 1fr;
   grid-row-gap: 50px;
+  max-width: 1500px;
+  margin: auto;
 }
 
 .photographer {
@@ -69,52 +87,36 @@ body {
   flex-direction: column;
   justify-content: space-between;
 }
-.photographer--left {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.photographer--middle {
+.photographer .profile {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.photographer--right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.profile {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.profile__picture {
+.photographer .profile__picture {
   line-height: 0;
 }
-.profile__picture > img {
+.photographer .profile__picture > img {
   border-radius: 50%;
   height: 202px;
   margin: auto;
 }
-.profile__name {
+.photographer .profile__name {
   margin: 20px auto 0px auto;
   color: #CC5841;
   font-weight: normal;
   font-size: 2.3rem;
   white-space: nowrap;
 }
-.profile__location {
+.photographer .profile__location {
   margin: auto;
   color: #901C1C;
   font-size: 0.8em;
 }
-.profile__biography {
+.photographer .profile__biography {
   margin: 3px auto;
   font-size: 0.65em;
 }
-.profile__tariff {
+.photographer .profile__tariff {
   margin: 0px auto 5px auto;
   color: grey;
   font-size: 0.59em;

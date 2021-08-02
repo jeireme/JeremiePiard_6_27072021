@@ -21,22 +21,32 @@
     
     <header class="header">
         <a href="index.html"><img src="img/Logo/logo.svg" class="header__logo" alt="Logo du site FishEye"></a>
-        <ul class="filters">
-            <li class="filters__link">#Portrait</li>
-            <li class="filters__link">#Art</li>
-            <li class="filters__link">#Fashion</li>
-            <li class="filters__link">#Architecture</li>
-            <li class="filters__link">#Travel</li>
-            <li class="filters__link">#Sport</li>
-            <li class="filters__link">#Animals</li>
-            <li class="filters__link">#Events</li>
-        </ul>
+        <div class="filters" id="filters">
+            <input type="checkbox" class="filters__tags" id="portrait" value="portrait"><label for="portrait" class="cursorPointer">#Portrait</label>
+            <input type="checkbox" class="filters__tags" id="art" value="art"><label for="art" class="cursorPointer">#Art</label>
+            <input type="checkbox" class="filters__tags" id="fashion" value="fashion"><label for="fashion" class="cursorPointer">#Fashion</label>
+            <input type="checkbox" class="filters__tags" id="architecture" value="architecture"><label for="architecture" class="cursorPointer">#Architecture</label>
+            <input type="checkbox" class="filters__tags" id="travel" value="travel"><label for="travel" class="cursorPointer">#Travel</label>
+            <input type="checkbox" class="filters__tags" id="sport" value="sport"><label for="sport" class="cursorPointer">#Sport</label>
+            <input type="checkbox" class="filters__tags" id="animals" value="animals"><label for="animals" class="cursorPointer">#Animals</label>
+            <input type="checkbox" class="filters__tags" id="events" value="events"><label for="events" class="cursorPointer">#Events</label>
+        </div>
+        <!-- <ul class="filters" id="filters">
+            <li class="filters__link" id="portrait">#Portrait</li>
+            <li class="filters__link" id="art">#Art</li>
+            <li class="filters__link" id="fashion">#Fashion</li>
+            <li class="filters__link" id="architecture">#Architecture</li>
+            <li class="filters__link" id="travel">#Travel</li>
+            <li class="filters__link" id="sport">#Sport</li>
+            <li class="filters__link" id="animals">#Animals</li>
+            <li class="filters__link" id="events">#Events</li>
+        </ul> -->
         <h1 class="header__title">Nos photographes</h1>
     </header>
 
     <section class="main" id="content"></section>
 
-    <script src="scripts/main.js" type="module"></script>
+    <script src="scripts/displayManager.js" type="module"></script>
 </body>
 
 </html>
