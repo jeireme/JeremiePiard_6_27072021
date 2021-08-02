@@ -33,13 +33,13 @@ export default class Photographer {
             if (filter.checked) {
                 for (let tag of this.tags) {
                     if (tag == filter.id) {
-                        document.getElementById(this.id).style.display = "none";
+                        document.getElementById(this.id).style.display = "flex";
                         return;
                     }
                 }
             }
         }
-        document.getElementById(this.id).style.display = "flex";
+        document.getElementById(this.id).style.display = "none";
     }
 }
 
