@@ -29,8 +29,10 @@ export default class Photographer {
     }
 
     onChangeDisplay(filters) {
+        document.getElementById(this.id).style.display = "flex";
         for (let filter of filters) {
             if (filter.checked) {
+                document.getElementById(this.id).style.display = "none";
                 for (let tag of this.tags) {
                     if (tag == filter.id) {
                         document.getElementById(this.id).style.display = "flex";
@@ -39,7 +41,6 @@ export default class Photographer {
                 }
             }
         }
-        document.getElementById(this.id).style.display = "none";
     }
 }
 
