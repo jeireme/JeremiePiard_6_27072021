@@ -2,14 +2,19 @@ import Photographer from './photographer.js';
 
 let profiles = [];
 const tags = document.getElementById('filters').getElementsByTagName('input');
+const url = "https://raw.githubusercontent.com/jeireme/JeremiePiard_6_27072021/master/data/FishEyeData.json";
 
-fetch("https://raw.githubusercontent.com/jeireme/JeremiePiard_6_27072021/master/data/FishEyeData.json")
-.then(response => response.json())
-.then(json => {
-    displayPhotographers(json.photographers);
-    initFilter(tags);
-    //displayMedias(json.media);
-});
+fetch(url).then(response => {
+        if (response.ok) return response.json();
+        else throw new Error('Something went wrong');
+    }).then(json => {
+        console.log("data loading sucess");
+        displayPhotographers(json.photographers);
+        initFilter(tags);
+    })
+    .catch((error) => {
+        console.log(error)
+    });
 
 function displayPhotographers(photographers) {
     for (let i in photographers) {
@@ -17,23 +22,14 @@ function displayPhotographers(photographers) {
         photographer.display();
         profiles.push(photographer);
     }
-    // console.log('profile.length :' + profiles.length);
-
-//     for (let filter of filters) {
-//             // console.log("filter = " + filter.id);
-//             filter.addEventListener("change", checkTagsList);
-//         }
 }
 
 function initFilter(tags) {
     for (let tag of tags) {
-        // console.log("filter = " + filter.id);
-        tag.addEventListener("change", function(event) {
-
+        tag.addEventListener("change", function (event) {
             for (let photographer of profiles) {
                 photographer.onChangeDisplay(event);
             }
-            
         });
     }
 }
