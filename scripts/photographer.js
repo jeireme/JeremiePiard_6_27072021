@@ -25,24 +25,22 @@ export default class Photographer {
                 <div class="filters">
                     ${setHtmlFilters(this.tags)}
                 </div>
-            </div>
-        `;
+            </div> `;
     }
 
-    onChangeDisplay(event) {
-
-        this.tags.forEach(tag => {
-            if (tag == event.target.value && event.target.checked) {
-                // if (this.name == "Tracy Galindo") console.log(this.id);
-                document.getElementById(this.id).style.display = "none";
+    onChangeDisplay(filters) {
+        for (let filter of filters) {
+            if (filter.checked) {
+                for (let tag of this.tags) {
+                    if (tag == filter.id) {
+                        document.getElementById(this.id).style.display = "none";
+                        return;
+                    }
+                }
             }
-            else document.getElementById(this.id).style.display = "block";
-        });
+        }
+        document.getElementById(this.id).style.display = "flex";
     }
-}
-
-function checkTagsList(event) {
-    console.log("Tag détecté : " + event.target.value);
 }
 
 function setHtmlFilters(tags) {

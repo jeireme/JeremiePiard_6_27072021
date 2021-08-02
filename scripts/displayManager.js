@@ -1,16 +1,15 @@
 import Photographer from './photographer.js';
 
 let profiles = [];
-const tags = document.getElementById('filters').getElementsByTagName('input');
+const filters = document.getElementById('filters').getElementsByTagName('input');
 const url = "https://raw.githubusercontent.com/jeireme/JeremiePiard_6_27072021/master/data/FishEyeData.json";
 
 fetch(url).then(response => {
         if (response.ok) return response.json();
         else throw new Error('Something went wrong');
     }).then(json => {
-        console.log("data loading sucess");
         displayPhotographers(json.photographers);
-        initFilter(tags);
+        initFilter(filters);
     })
     .catch((error) => {
         console.log(error)
@@ -24,11 +23,11 @@ function displayPhotographers(photographers) {
     }
 }
 
-function initFilter(tags) {
-    for (let tag of tags) {
-        tag.addEventListener("change", function (event) {
+function initFilter(filters) {
+    for (let filter of filters) {
+        filter.addEventListener("change", function() {
             for (let photographer of profiles) {
-                photographer.onChangeDisplay(event);
+                photographer.onChangeDisplay(filters);
             }
         });
     }
