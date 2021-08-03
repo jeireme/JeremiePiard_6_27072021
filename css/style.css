@@ -79,7 +79,7 @@ body {
   color: white;
 }
 .filters__tags:checked + label:hover {
-  background-color: #cc4a4a;
+  background-color: #701717;
 }
 
 .cursorPointer:hover {
