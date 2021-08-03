@@ -11,10 +11,10 @@ export default class Photographer {
     }
 
     display() {
-        document.getElementById("content").innerHTML += `
+        document.getElementById("profiles").innerHTML += `
             <div class="photographer" id="${this.id}">
                 <div class="profile">
-                    <a href="#" class="profile__picture"><img src="img/Photographers-md/${this.portrait}" alt="Photo de profil de ${this.name}"></a>
+                    <a href="medias.html" class="profile__picture"><img src="img/Photographers-md/${this.portrait}" alt="Photo de profil de ${this.name}"></a>
                     <h2 class="profile__name">${this.name}</h2>
                 </div>
                 <div class="profile">
@@ -46,6 +46,6 @@ export default class Photographer {
 
 function setHtmlFilters(tags) {
     let html = '';
-    for (let i in tags) html += '<input type="checkbox" class="filters__tags"><label>#' + tags[i] + '</label>';
+    for (let i in tags) html += '<input type="checkbox" class="filters__tags"><label class="filters__tags__name">#' + tags[i] + '</label>';
     return html;
 }
