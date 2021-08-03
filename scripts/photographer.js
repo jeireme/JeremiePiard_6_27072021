@@ -10,11 +10,11 @@ export default class Photographer {
         this.portrait = data.portrait;
     }
 
-    display() {
+    displayHomePage() {
         document.getElementById("profiles").innerHTML += `
-            <div class="photographer" id="${this.id}">
+            <div class="photographer ${this.id}">
                 <div class="profile">
-                    <a href="medias.html" class="profile__picture"><img src="img/Photographers-md/${this.portrait}" alt="Photo de profil de ${this.name}"></a>
+                    <a href="medias.html" class="profile__picture" id="${this.id}"><img src="img/Photographers-md/${this.portrait}" alt="Photo de profil de ${this.name}"></a>
                     <h2 class="profile__name">${this.name}</h2>
                 </div>
                 <div class="profile">
@@ -28,14 +28,15 @@ export default class Photographer {
             </div> `;
     }
 
-    onChangeDisplay(filters) {
-        document.getElementById(this.id).style.display = "flex";
+    onFilterChange(filters) {
+        const photographers = document.getElementsByClassName(this.id);
+        photographers[0].style.display = "flex";
         for (let filter of filters) {
             if (filter.checked) {
-                document.getElementById(this.id).style.display = "none";
+                photographers[0].style.display = "none";
                 for (let tag of this.tags) {
                     if (tag == filter.id) {
-                        document.getElementById(this.id).style.display = "flex";
+                        photographers[0].style.display = "flex";
                         return;
                     }
                 }
