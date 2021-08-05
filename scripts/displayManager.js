@@ -5,15 +5,17 @@ let filters = [];
 let photographers = [];
 let medias = [];
 export default class DisplayManager {
+
     constructor(data) {
         this.profiles = data.photographers;
         this.media = data.media;
     }
 
     home() {
+        console.log("display Home");
         for (let obj of this.profiles) {
             let photographer = new Photographer(obj);
-            photographer.display();
+            photographer.display("homepage");
             photographers.push(photographer);
         }
 
@@ -24,13 +26,11 @@ export default class DisplayManager {
         for (let link of profileLinks) {
             link.addEventListener("click", function () {
                 sessionStorage.setItem('id', this.id);
-                console.log("id : " + this.id)
             });
         }
     }
 
     medias() {
-        // ! on créera ça demain...
         console.log("Nous allons afficher les médias du photographe n°" + sessionStorage.getItem('id'));
         sessionStorage.clear();
     }
