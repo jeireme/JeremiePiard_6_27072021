@@ -10,8 +10,9 @@ export default class Photographer {
         this.portrait = data.portrait;
     }
 
-    displayHomePage() {
-        document.getElementById("profiles").innerHTML += `
+    display(page) {
+        if (page == "homepage") {
+            document.getElementById("profiles").innerHTML += `
             <div class="photographer ${this.id}">
                 <div class="profile">
                     <a href="medias.html" class="profile__picture" id="${this.id}"><img src="img/Photographers-md/${this.portrait}" alt="Photo de profil de ${this.name}"></a>
@@ -23,29 +24,24 @@ export default class Photographer {
                     <p class="profile__tariff">${this.price}</p>
                 </div>
                 <div class="filters">
-                    ${setHtmlFilters(this.tags)}
+                    ${setFilters(this.tags)}
                 </div>
             </div> `;
+        } else if (page == "medias") {
+            // ! on créera ça demain...
+        }
     }
 
-    onFilterChange(filters) {
-        const photographers = document.getElementsByClassName(this.id);
-        photographers[0].style.display = "flex";
-        for (let filter of filters) {
-            if (filter.checked) {
-                photographers[0].style.display = "none";
-                for (let tag of this.tags) {
-                    if (tag == filter.id) {
-                        photographers[0].style.display = "flex";
-                        return;
-                    }
-                }
-            }
-        }
+    keep() {
+        document.getElementsByClassName(this.id)[0].style.display = "flex";
+    }
+
+    remove() {
+        document.getElementsByClassName(this.id)[0].style.display = "none";
     }
 }
 
-function setHtmlFilters(tags) {
+function setFilters(tags) {
     let html = '';
     for (let i in tags) html += '<input type="checkbox" class="filters__tags"><label class="filters__tags__name">#' + tags[i] + '</label>';
     return html;

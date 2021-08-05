@@ -1,0 +1,16 @@
+import DisplayManager from './displayManager.js';
+
+const url = "https://raw.githubusercontent.com/jeireme/JeremiePiard_6_27072021/master/data/FishEyeData.json";
+
+fetch(url).then(response => {
+        if (response.ok) return response.json();
+        else throw new Error('Something went wrong');
+    })
+    .then(json => {
+        let display = new DisplayManager(json);
+        if (sessionStorage.getItem('id') == null) display.home();
+        else display.medias();
+    })
+    .catch((error) => {
+        console.log(error)
+    });
