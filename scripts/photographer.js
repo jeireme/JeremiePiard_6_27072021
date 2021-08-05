@@ -5,7 +5,8 @@ export default class Photographer {
         this.name = data.name;
         this.location = data.city + ", " + data.country;
         this.tagline = data.tagline;
-        this.price = data.price + "€/jour";
+        this.priceHome = data.price + "€/jour";
+        this.priceMedias = data.price + "€ / jour";
         this.tags = data.tags;
         this.portrait = data.portrait;
     }
@@ -21,14 +22,33 @@ export default class Photographer {
                 <div class="profile">
                     <p class="profile__location">${this.location}</p>
                     <p class="profile__biography">${this.tagline}</p>
-                    <p class="profile__tariff">${this.price}</p>
+                    <p class="profile__tariff">${this.priceHome}</p>
                 </div>
                 <div class="filters">
-                    ${setFilters(this.tags)}
+                    ${setFilters(this.tags, page)}
                 </div>
             </div> `;
         } else if (page == "medias") {
-            // ! on créera ça demain...
+            document.getElementById("description").innerHTML += `
+            <div class="photographer--medias ${this.id}">
+                <div class="profile">
+                    <h2 class="profile__name profile__name--medias">${this.name} <button class="contact">Contactez-moi</button></h2>
+                </div>
+                <div class="profile--medias">
+                    <p class="profile__location profile__location--medias">${this.location}</p>
+                    <p class="profile__biography profile__biography--medias">${this.tagline}</p>
+                </div>
+                <div class="filters filters--medias">
+                    ${setFilters(this.tags, page)}
+                </div>
+            </div>
+            <a href="#" class="profile__picture profile__picture--medias"><img src="img/Photographers-md/${this.portrait}" alt="Photo de profil de ${this.name}"></a> `;
+
+            document.getElementById("banner").innerHTML += `
+            <div>
+                <p>297 091 <i class="fas fa-heart"></i></p>
+            </div>
+            <p>${this.priceMedias}</p> `;
         }
     }
 
@@ -41,8 +61,12 @@ export default class Photographer {
     }
 }
 
-function setFilters(tags) {
+function setFilters(tags, page) {
     let html = '';
-    for (let i in tags) html += '<input type="checkbox" class="filters__tags"><label class="filters__tags__name">#' + tags[i] + '</label>';
+    if (page == "homepage") {
+        for (let i in tags) html += '<input type="checkbox" class="filters__tags"><label class="filters__tags__name">#' + tags[i] + '</label>';
+    } else if (page == "medias") {
+        for (let i in tags) html += '<input type="checkbox" class="filters__tags"><label class="filters__tags__name filters__tags__name--medias">#' + tags[i] + '</label>';
+    }
     return html;
 }

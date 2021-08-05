@@ -31,7 +31,21 @@ export default class DisplayManager {
     }
 
     medias() {
-        console.log("Nous allons afficher les médias du photographe n°" + sessionStorage.getItem('id'));
+        console.log("Display ID n°" + sessionStorage.getItem('id'));
+
+        // Photographer
+        let obj = this.profiles.find(element => element.id == sessionStorage.getItem('id'));
+        let photographer = new Photographer(obj);
+        photographer.display("medias");
+
+        // Medias
+        let photographerMedias = this.media.filter(element => element.photographerId == sessionStorage.getItem('id'));
+        for (let obj of photographerMedias) {
+            let media = new Medias(obj);
+            media.display();
+            medias.push(media);
+        }
+
         sessionStorage.clear();
     }
 }

@@ -171,6 +171,7 @@ body {
   justify-content: space-between;
   border-radius: 10px;
   width: 1230px;
+  height: 230px;
   background-color: #fafafa;
   margin: auto;
   padding: 55px;
@@ -211,10 +212,11 @@ body {
 
 .contact {
   position: relative;
-  top: 10px;
-  left: -180px;
+  top: -15px;
+  left: 70px;
   height: 70px;
   width: 185px;
+  background-color: blue;
   font-size: 1.4rem;
   font-weight: bolder;
   border: none;
@@ -257,7 +259,7 @@ body {
   color: black;
 }
 
-.banner {
+#banner {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -274,6 +276,6 @@ body {
   font-weight: bolder;
   background-color: #DB8878;
 }
-.banner p {
+#banner p {
   margin: 0;
 }/*# sourceMappingURL=style.css.map */
