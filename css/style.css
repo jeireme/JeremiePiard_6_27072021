@@ -182,7 +182,7 @@ body {
   grid-template: 1fr 1fr/1fr 1fr 1fr;
   grid-gap: 20px 100px;
   width: 1340px;
-  margin: 50px auto 30px;
+  margin: 50px auto 100px;
 }
 
 .medias {
@@ -208,6 +208,12 @@ body {
   font-size: 1.7rem;
   margin: auto;
   color: #901C1C;
+}
+.medias__header > p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 320px;
 }
 
 .contact {

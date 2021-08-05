@@ -16,7 +16,9 @@ export default class Photographer {
             document.getElementById("profiles").innerHTML += `
             <div class="photographer ${this.id}">
                 <div class="profile">
-                    <a href="medias.html" class="profile__picture" id="${this.id}"><img src="img/Photographers-md/${this.portrait}" alt="Photo de profil de ${this.name}"></a>
+                    <a href="medias.html" class="profile__picture" id="${this.id}">
+                        <img src="img/Photographers-md/${this.portrait}" alt="Photo de profil de ${this.name}">
+                    </a>
                     <h2 class="profile__name">${this.name}</h2>
                 </div>
                 <div class="profile">
@@ -28,11 +30,14 @@ export default class Photographer {
                     ${setFilters(this.tags, page)}
                 </div>
             </div> `;
-        } else if (page == "medias") {
+        }
+        else if (page == "medias") {
             document.getElementById("description").innerHTML += `
             <div class="photographer--medias ${this.id}">
                 <div class="profile">
-                    <h2 class="profile__name profile__name--medias">${this.name} <button class="contact">Contactez-moi</button></h2>
+                    <h2 class="profile__name profile__name--medias">
+                        ${this.name} <button class="contact">Contactez-moi</button>
+                    </h2>
                 </div>
                 <div class="profile--medias">
                     <p class="profile__location profile__location--medias">${this.location}</p>
@@ -42,7 +47,9 @@ export default class Photographer {
                     ${setFilters(this.tags, page)}
                 </div>
             </div>
-            <a href="#" class="profile__picture profile__picture--medias"><img src="img/Photographers-md/${this.portrait}" alt="Photo de profil de ${this.name}"></a> `;
+            <a href="#" class="profile__picture profile__picture--medias">
+                <img src="img/Photographers-md/${this.portrait}" alt="Photo de profil de ${this.name}">
+            </a> `;
 
             document.getElementById("banner").innerHTML += `
             <div>

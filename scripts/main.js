@@ -8,7 +8,6 @@ fetch(url).then(response => {
     })
     .then(json => {
         let display = new DisplayManager(json);
-        // sessionStorage.clear();
         if (sessionStorage.getItem('id') == null) display.home();
         else display.medias();
     })

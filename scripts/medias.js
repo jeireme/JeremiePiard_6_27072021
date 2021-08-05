@@ -4,8 +4,8 @@ export default class Medias {
         this.id = data.id;
         this.photographerId = data.photographerId;
         this.title = data.title;
-        this.image = data.image || 'false';  
-        this.video = data.video || 'false';
+        this.image = data.image;
+        this.video = data.video;
         this.tags = data.tags;
         this.likes = data.likes;
         this.date = data.likes;
@@ -20,20 +20,11 @@ export default class Medias {
                 <p>${this.title}</p>
                 <i class="fas fa-heart"></i>
             </div>
-        </div>
-        `;
-    }
-
-    displayNone() {
-        document.getElementsByClassName(this.id)[0].style.display = "none";
+        </div> `;
     }
 }
 
 function isImageOrVideo(image, video) {
-    if (image) return `<img src="img/medias/${image}" class="medias__picture">`;
-    else return `
-    <video title="${this.title}" preload="auto" autoplay controls>
-        <source src="img/medias/${video}" type="video/mp4">
-    </video>
-    `;
+    if (image) return ` <img src="img/medias/${image}" class="medias__picture"> `;
+    else if (video) return ` <video src="img/medias/${video}" autoplay loop class="medias__picture" controls></video> `;
 }
