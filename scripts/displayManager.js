@@ -1,9 +1,16 @@
 import Photographer from './photographer.js';
 import Medias from './medias.js';
 
-let filters = [];
 let photographers = [];
 let medias = [];
+
+let filters = [];
+let sortChoices = ["Popularité", "Date", "Title"];
+let selectionDiv;
+let optionsDiv;
+let selected;
+let options;
+
 export default class DisplayManager {
 
     constructor(data) {
@@ -46,8 +53,38 @@ export default class DisplayManager {
             medias.push(media);
         }
 
+        // init sorting options
+        selectionDiv = document.getElementById("selection");
+        optionsDiv = document.getElementById("options");
+        selected = document.getElementById("selected__value");
+        options = optionsDiv.getElementsByTagName("button");
+        selectionDiv.addEventListener("click", initSortingListeners);
+        for (let option of options) option.addEventListener("click", selectOption);
+
         sessionStorage.clear();
     }
+
+    static sorting() {
+        console.log("On va trier par : " + selected.innerHTML);
+    }
+}
+
+function initSortingListeners() {
+    selectionDiv.style.display = "none";
+    optionsDiv.style.display = "block";
+}
+
+function selectOption(event) {
+    const userChoice = document.getElementById(event.target.id).querySelector('h3').innerHTML;
+    if (event.target.id != "choice1") {
+        const choice1 = document.getElementById("choice1").querySelector('h3');
+        document.getElementById(event.target.id).querySelector('h3').innerHTML = choice1.innerHTML;
+        choice1.innerHTML = userChoice;
+        selected.innerHTML = userChoice;
+    }
+    optionsDiv.style.display = "none";
+    selectionDiv.style.display = "flex";
+    DisplayManager.sorting(userChoice);
 }
 
 function initFiltersListeners() {

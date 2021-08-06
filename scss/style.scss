@@ -86,6 +86,24 @@ body {
   }
 }
 
+#banner {
+  @include flexRowBetweenCenter;
+  position: fixed;
+  bottom: -2px;
+  left: 70vw;
+  width: 350px;
+  height: 75px;
+  padding: 0 30px;
+  margin: 0;
+  border-radius: 7px 7px 0 0;
+  font-size: 1.7rem;
+  font-weight: bolder;
+  background-color: $light-rust;
+  p {
+    margin: 0;
+  }
+}
+
 #profiles {
   display: grid;
   grid-template: 1fr 1fr / 1fr 1fr 1fr;
@@ -218,46 +236,58 @@ body {
   }
 }
 
-.sort {
+#sort {
   display: flex;
   margin-top: 10px;
+  height: 60px;
   button {
     @include flexRowBetweenCenter;
     position: relative;
-    top: 10px;
-    left: -220px;
     height: 70px;
     width: 185px;
-    margin: -10px 250px;
+    margin-left: 20px;
     padding: 0 22px;
     font-size: 1rem;
     font-weight: bolder;
     border: none;
-    border-radius: 5px;
     background-color: #901c1c;
     color: white;
+    > h3 {
+      pointer-events: none;
+    }
+    > i {
+      color: white;
+      pointer-events: none;
+    }
     &:hover {
       cursor: pointer;
-      background-color: #db8876;
-      color: black;
     }
   }
 }
 
-#banner {
-  @include flexRowBetweenCenter;
-  position: fixed;
-  bottom: -2px;
-  left: 70vw;
-  width: 350px;
-  height: 75px;
-  padding: 0 30px;
-  margin: 0;
+#selection {
+  border-radius: 7px;
+}
+#options {
+  position: absolute;
+  z-index: 1;
+  display: none;
+}
+#choice1 {
   border-radius: 7px 7px 0 0;
-  font-size: 1.7rem;
-  font-weight: bolder;
-  background-color: $light-rust;
-  p {
-    margin: 0;
+}
+#choice2 {
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: 15px;
+    width: 157px;
+    height: 100%;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
   }
+}
+#choice3 {
+  border-radius: 0 0 7px 7px;
 }
