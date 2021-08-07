@@ -86,7 +86,7 @@ export default class DisplayManager {
         else if (selected.innerHTML == "Popularité") {
             for (let media of medias) media.removeChild();
             medias.sort(function (a, b) {
-                return a.likes - b.likes;
+                return b.likes - a.likes;
             });
             for (let media of medias) media.appendChild()
         }
