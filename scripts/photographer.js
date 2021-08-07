@@ -13,8 +13,10 @@ export default class Photographer {
 
     display(page) {
         if (page == "homepage") {
-            document.getElementById("profiles").innerHTML += `
-            <div class="photographer ${this.id}">
+            const profiles = document.getElementById("profiles");
+            let photographer = document.createElement('div');
+            photographer.className = "photographer " + this.id;
+            photographer.innerHTML = ` 
                 <div class="profile">
                     <a href="medias.html" class="profile__picture" id="${this.id}">
                         <img src="img/Photographers-md/${this.portrait}" alt="Photo de profil de ${this.name}">
@@ -28,8 +30,8 @@ export default class Photographer {
                 </div>
                 <div class="filters">
                     ${setFilters(this.tags, page)}
-                </div>
-            </div> `;
+                </div> `;
+            profiles.appendChild(photographer);
         }
         else if (page == "medias") {
             document.getElementById("description").innerHTML += `

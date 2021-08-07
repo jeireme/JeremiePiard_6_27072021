@@ -1,3 +1,4 @@
+const gallery = document.getElementById("gallery");
 export default class Medias {
 
     constructor(data) {
@@ -8,19 +9,28 @@ export default class Medias {
         this.video = data.video;
         this.tags = data.tags;
         this.likes = data.likes;
-        this.date = data.likes;
+        this.date = data.date;
         this.price = data.price;
+        this.media = document.createElement('div');
     }
 
     display() {
-        document.getElementById("gallery").innerHTML += `
-        <div class="medias">
-            ${isImageOrVideo(this.image, this.video)}
-            <div class="medias__header">
-                <p>${this.title}</p>
-                <i class="fas fa-heart"></i>
-            </div>
+        this.media.className = "medias";
+        this.media.innerHTML = `
+        ${isImageOrVideo(this.image, this.video)}
+        <div class="medias__header">
+            <p>${this.title}</p>
+            <i class="fas fa-heart"></i>
         </div> `;
+        gallery.appendChild(this.media);
+    }
+
+    appendChild() {
+        gallery.appendChild(this.media);
+    }
+
+    removeChild() {
+        gallery.removeChild(this.media);
     }
 }
 

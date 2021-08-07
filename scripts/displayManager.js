@@ -59,13 +59,37 @@ export default class DisplayManager {
         selected = document.getElementById("selected__value");
         options = optionsDiv.getElementsByTagName("button");
         selectionDiv.addEventListener("click", initSortingListeners);
+        DisplayManager.sorting();
         for (let option of options) option.addEventListener("click", selectOption);
 
         sessionStorage.clear();
     }
 
     static sorting() {
-        console.log("On va trier par : " + selected.innerHTML);
+        
+        console.log("Affichage trié par : " + selected.innerHTML);
+
+        if (selected.innerHTML == "Date") {
+            for (let media of medias) media.removeChild();
+            medias.sort(function (a, b) {
+                return new Date(a.date) - new Date(b.date);
+            });
+            for (let media of medias) media.appendChild();
+        }
+        else if (selected.innerHTML == "Titre") {
+            for (let media of medias) media.removeChild();
+            medias.sort(function (a, b) {
+                return a.title.localeCompare(b.title);
+            });
+            for (let media of medias) media.appendChild()
+        }
+        else if (selected.innerHTML == "Popularité") {
+            for (let media of medias) media.removeChild();
+            medias.sort(function (a, b) {
+                return a.likes - b.likes;
+            });
+            for (let media of medias) media.appendChild()
+        }
     }
 }
 
