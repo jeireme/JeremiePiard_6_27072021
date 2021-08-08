@@ -55,7 +55,7 @@ export default class Photographer {
 
             document.getElementById("banner").innerHTML += `
             <div>
-                <p>297 091 <i class="fas fa-heart"></i></p>
+                <p><span id="total_likes"></span> <i class="fas fa-heart"></i></p>
             </div>
             <p>${this.priceMedias}</p> `;
         }

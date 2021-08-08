@@ -9,6 +9,7 @@ export default class Medias {
         this.video = data.video;
         this.tags = data.tags;
         this.likes = data.likes;
+        this.liked = false;
         this.date = data.date;
         this.price = data.price;
         this.media = document.createElement('div');
@@ -20,7 +21,7 @@ export default class Medias {
         ${isImageOrVideo(this.image, this.video)}
         <div class="medias__header">
             <p>${this.title}</p>
-            <p>${this.likes} <i class="fas fa-heart"></i></p>
+            <p><span id="likes_id_${this.id}">${this.likes}</span> <i id="${this.id}" class="fas fa-heart cursorPointer"></i></p>
         </div> `;
         gallery.appendChild(this.media);
     }

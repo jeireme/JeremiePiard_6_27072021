@@ -5,11 +5,11 @@ let photographers = [];
 let medias = [];
 
 let filters = [];
-let sortChoices = ["Popularité", "Date", "Title"];
 let selectionDiv;
 let optionsDiv;
 let selected;
 let options;
+let totallikes = 0;
 
 export default class DisplayManager {
 
@@ -51,7 +51,10 @@ export default class DisplayManager {
             let media = new Medias(obj);
             media.display();
             medias.push(media);
+            totallikes += media.likes;
+            document.getElementById(media.id).addEventListener("click", onLike);
         }
+        document.getElementById("total_likes").innerText = totallikes;
 
         // init sorting options
         selectionDiv = document.getElementById("selection");
@@ -66,9 +69,7 @@ export default class DisplayManager {
     }
 
     static sorting() {
-        
-        console.log("Affichage trié par : " + selected.innerHTML);
-
+        // console.log("Affichage trié par : " + selected.innerHTML);
         if (selected.innerHTML == "Date") {
             for (let media of medias) media.removeChild();
             medias.sort(function (a, b) {
@@ -89,6 +90,23 @@ export default class DisplayManager {
                 return b.likes - a.likes;
             });
             for (let media of medias) media.appendChild()
+        }
+    }
+}
+
+function onLike(event) {
+    // console.log(event.target.id);
+    const mediaLiked = document.getElementById("likes_id_" + event.target.id);
+    for (let media of medias) {
+        if (media.id == event.target.id & !media.liked) {
+            mediaLiked.innerText = ++media.likes;
+            document.getElementById("total_likes").innerText = ++totallikes;
+            media.liked = true;
+        }
+        else if (media.id == event.target.id & media.liked) {
+            mediaLiked.innerText = --media.likes;
+            document.getElementById("total_likes").innerText = --totallikes;
+            media.liked = false;
         }
     }
 }
