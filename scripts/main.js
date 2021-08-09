@@ -1,5 +1,7 @@
 import DisplayManager from './displayManager.js';
 
+if (document.body.id == "index") sessionStorage.clear();
+
 const url = "https://raw.githubusercontent.com/jeireme/JeremiePiard_6_27072021/master/data/FishEyeData.json";
 
 fetch(url).then(response => {
@@ -8,7 +10,6 @@ fetch(url).then(response => {
     })
     .then(json => {
         let display = new DisplayManager(json);
-        // sessionStorage.clear();
         if (sessionStorage.getItem('id') == null) display.home();
         else display.medias();
     })

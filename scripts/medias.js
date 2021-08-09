@@ -5,8 +5,9 @@ export default class Medias {
         this.id = data.id;
         this.photographerId = data.photographerId;
         this.title = data.title;
-        this.image = data.image;
-        this.video = data.video;
+        this.content;
+        this.isImage = data.image;
+        this.isVideo = data.video;
         this.tags = data.tags;
         this.likes = data.likes;
         this.liked = false;
@@ -16,9 +17,9 @@ export default class Medias {
     }
 
     display() {
-        this.media.className = "medias";
+        this.media.className = "medias " + this.id;
         this.media.innerHTML = `
-        ${isImageOrVideo(this.image, this.video)}
+        ${this.content = isImageOrVideo(this.isImage, this.isVideo)}
         <div class="medias__header">
             <p>${this.title}</p>
             <p><span id="likes_id_${this.id}">${this.likes}</span> <i id="${this.id}" class="fas fa-heart cursorPointer"></i></p>
@@ -35,7 +36,8 @@ export default class Medias {
     }
 }
 
-function isImageOrVideo(image, video) {
-    if (image) return ` <img src="img/medias/${image}" class="medias__picture"> `;
-    else if (video) return ` <video src="img/medias/${video}" autoplay loop class="medias__picture" controls></video> `;
+// ! Au clique ici :
+function isImageOrVideo(isImage, isVideo) {
+    if (isImage) return `<img src="img/medias/${isImage}" class="medias__picture image cursorPointer">`;
+    else if (isVideo) return `<video src="img/medias/${isVideo}" autoplay loop class="medias__picture" controls></video>`;
 }

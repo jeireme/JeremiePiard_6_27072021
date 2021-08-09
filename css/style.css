@@ -248,13 +248,61 @@ body {
   font-weight: bolder;
   border: none;
   border-radius: 5px;
-  background-color: #901c1c;
+  background-color: #992a2a;
   color: white;
 }
 .contact:hover {
   cursor: pointer;
   background-color: #db8876;
   color: black;
+}
+
+#fullscreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  background-color: white;
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+  color: #901c1c;
+}
+#fullscreen .controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+}
+#fullscreen .controls #close {
+  position: absolute;
+  right: -95px;
+  margin-top: 15px;
+  font-size: 2.2em;
+  -webkit-text-stroke: 5.5px white;
+}
+#fullscreen #image {
+  background-color: #fff;
+  position: relative;
+  height: 100%;
+  margin-top: 20px;
+}
+#fullscreen #image img {
+  height: 80vh;
+  cursor: auto;
+}
+#fullscreen #image video {
+  height: 80vh;
+}
+#fullscreen p {
+  margin: 10px 0;
+}
+#fullscreen i {
+  margin: 0 30px 70px 30px;
+  font-size: 2em;
 }
 
 #sort {

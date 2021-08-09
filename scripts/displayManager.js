@@ -1,6 +1,13 @@
 import Photographer from './photographer.js';
 import Medias from './medias.js';
 
+let fullscreen;
+let fullscreenTitle;
+let fullscreenImg;
+let leftBtn;
+let rightBtn;
+let index = false;
+
 let photographers = [];
 let medias = [];
 
@@ -53,6 +60,8 @@ export default class DisplayManager {
             medias.push(media);
             totallikes += media.likes;
             document.getElementById(media.id).addEventListener("click", onLike);
+            if (media.isImage) document.getElementsByClassName(media.id)[0].querySelector('img').addEventListener("click", onFullscreen);
+            // console.log("media.content = " + media.content);
         }
         document.getElementById("total_likes").innerText = totallikes;
 
@@ -65,7 +74,15 @@ export default class DisplayManager {
         DisplayManager.sorting();
         for (let option of options) option.addEventListener("click", selectOption);
 
-        sessionStorage.clear();
+        // init fullscreen
+        fullscreen = document.getElementById("fullscreen");
+        fullscreenTitle = document.getElementById("title");
+        fullscreenImg = document.getElementById("image");
+        leftBtn = document.getElementById("left");
+        rightBtn = document.getElementById("right");
+        document.getElementById("close").addEventListener("click", onClose);
+        document.getElementById("left").addEventListener("click", onLeft);
+        document.getElementById("right").addEventListener("click", onRight);
     }
 
     static sorting() {
@@ -92,6 +109,64 @@ export default class DisplayManager {
             for (let media of medias) media.appendChild()
         }
     }
+}
+
+function onFullscreen(event) {
+    for (const media of medias) if (media.content == event.currentTarget.outerHTML) {
+        // console.log(event.currentTarget.outerHTML);
+        console.log("fullscreen");
+        fullscreen.style.display = "flex";
+        fullscreenImg.innerHTML = media.content;
+        fullscreenTitle.innerText = media.title;
+        document.body.style.overflow = "hidden";
+        index = medias.indexOf(media);
+        console.log("index = " + index);
+    }
+
+}
+
+function onLeft() {
+    console.log("click");
+    if (index - 1 >= 0) {
+        --index;
+        console.log("index = " + index);
+        fullscreenImg.innerHTML = medias[index].content;
+        fullscreenTitle.innerText = medias[index].title;
+    }
+
+    // feedback at the end of the list
+    if (index == 0) {
+        leftBtn.style.color = "#901c1c41";
+        leftBtn.style.cursor = "auto";
+    } else if (index == medias.length - 2) {
+        right.style.color = "#901C1C";
+        right.style.cursor = "pointer";
+    }
+}
+
+function onRight() {
+    console.log("click");
+    if (index + 1 < medias.length) {
+        index++;
+        console.log("index = " + index);
+        console.log("media.length : " + medias.length);
+        fullscreenImg.innerHTML = medias[index].content;
+        fullscreenTitle.innerText = medias[index].title;
+    }
+
+    // feedback at the end of list
+    if (index == medias.length-1) {
+        rightBtn.style.color = "#901c1c41";
+        rightBtn.style.cursor = "auto";
+    } else if (index == 1) {
+        leftBtn.style.color = "#901C1C";
+        leftBtn.style.cursor = "pointer";
+    }
+}
+
+function onClose() {
+    document.body.style.overflow = "auto";
+    fullscreen.style.display = "none";
 }
 
 function onLike(event) {
