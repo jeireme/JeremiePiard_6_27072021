@@ -36,7 +36,6 @@ export default class Medias {
     }
 }
 
-// ! Au clique ici :
 function isImageOrVideo(isImage, isVideo) {
     if (isImage) return `<img src="img/medias/${isImage}" class="medias__picture image cursorPointer">`;
     else if (isVideo) return `<video src="img/medias/${isVideo}" autoplay loop class="medias__picture" controls></video>`;

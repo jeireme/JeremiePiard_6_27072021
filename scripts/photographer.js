@@ -49,9 +49,9 @@ export default class Photographer {
                     ${setFilters(this.tags, page)}
                 </div>
             </div>
-            <a href="#" class="profile__picture profile__picture--medias">
+            <div href="#" class="profile__picture profile__picture--medias">
                 <img src="img/Photographers-md/${this.portrait}" alt="Photo de profil de ${this.name}">
-            </a> `;
+            </div> `;
 
             document.getElementById("banner").innerHTML += `
             <div>

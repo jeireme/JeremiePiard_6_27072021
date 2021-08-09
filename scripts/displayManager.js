@@ -61,7 +61,6 @@ export default class DisplayManager {
             totallikes += media.likes;
             document.getElementById(media.id).addEventListener("click", onLike);
             if (media.isImage) document.getElementsByClassName(media.id)[0].querySelector('img').addEventListener("click", onFullscreen);
-            // console.log("media.content = " + media.content);
         }
         document.getElementById("total_likes").innerText = totallikes;
 
@@ -86,7 +85,6 @@ export default class DisplayManager {
     }
 
     static sorting() {
-        // console.log("Affichage trié par : " + selected.innerHTML);
         if (selected.innerHTML == "Date") {
             for (let media of medias) media.removeChild();
             medias.sort(function (a, b) {
@@ -113,7 +111,6 @@ export default class DisplayManager {
 
 function onFullscreen(event) {
     for (const media of medias) if (media.content == event.currentTarget.outerHTML) {
-        // console.log(event.currentTarget.outerHTML);
         console.log("fullscreen");
         fullscreen.style.display = "flex";
         fullscreenImg.innerHTML = media.content;
@@ -122,7 +119,24 @@ function onFullscreen(event) {
         index = medias.indexOf(media);
         console.log("index = " + index);
     }
+    
+    // feedback at the end of the list
+    if (index == 0) {
+        leftBtn.style.color = "#901c1c41";
+        leftBtn.style.cursor = "auto";
+    } else if (index == medias.length-1) {
+        rightBtn.style.color = "#901c1c41";
+        rightBtn.style.cursor = "auto";
+    }
 
+    if (index > 0) {
+        leftBtn.style.color = "#901C1C";
+        leftBtn.style.cursor = "pointer";
+    }
+    if (index < medias.length-1) {
+        right.style.color = "#901C1C";
+        right.style.cursor = "pointer";
+    }
 }
 
 function onLeft() {
@@ -170,7 +184,6 @@ function onClose() {
 }
 
 function onLike(event) {
-    // console.log(event.target.id);
     const mediaLiked = document.getElementById("likes_id_" + event.target.id);
     for (let media of medias) {
         if (media.id == event.target.id & !media.liked) {
