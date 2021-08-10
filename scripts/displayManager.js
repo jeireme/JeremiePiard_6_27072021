@@ -82,6 +82,13 @@ export default class DisplayManager {
         document.getElementById("close").addEventListener("click", onClose);
         document.getElementById("left").addEventListener("click", onLeft);
         document.getElementById("right").addEventListener("click", onRight);
+
+        // init form contact
+        document.getElementsByClassName("contact")[0].addEventListener("click", openForm);
+        document.getElementById("closeForm").addEventListener("click", closeForm);
+
+        // init submit
+        document.getElementById("submit").addEventListener("submit", onSubmit);
     }
 
     static sorting() {
@@ -109,15 +116,35 @@ export default class DisplayManager {
     }
 }
 
+function openForm(event) {
+    document.getElementById("form").style.height = "100vh";
+    document.getElementById("form").style.opacity = 1;
+    document.getElementById("form").style.pointerEvents = "all";
+    document.getElementById("background").style.backgroundColor = "rgba(255, 255, 255, 0.787)";
+    
+}
+
+function closeForm(event) {
+    document.getElementById("form").style.height = "0";
+    document.getElementById("form").style.opacity = 0;
+    document.getElementById("form").style.pointerEvents = "none";
+    document.getElementById("background").style.backgroundColor = "transparent";
+}
+
+function onSubmit(event) {
+    event.preventDefault()
+    console.log("Envoie du formulaire");
+    document.getElementsByClassName("form__container")[0].style.visibility = "hidden";
+    document.getElementById("success").style.display = "flex";
+}
+
 function onFullscreen(event) {
     for (const media of medias) if (media.content == event.currentTarget.outerHTML) {
-        console.log("fullscreen");
         fullscreen.style.display = "flex";
         fullscreenImg.innerHTML = media.content;
         fullscreenTitle.innerText = media.title;
         document.body.style.overflow = "hidden";
         index = medias.indexOf(media);
-        console.log("index = " + index);
     }
     
     // feedback at the end of the list
@@ -140,10 +167,8 @@ function onFullscreen(event) {
 }
 
 function onLeft() {
-    console.log("click");
     if (index - 1 >= 0) {
         --index;
-        console.log("index = " + index);
         fullscreenImg.innerHTML = medias[index].content;
         fullscreenTitle.innerText = medias[index].title;
     }
@@ -159,11 +184,8 @@ function onLeft() {
 }
 
 function onRight() {
-    console.log("click");
     if (index + 1 < medias.length) {
         index++;
-        console.log("index = " + index);
-        console.log("media.length : " + medias.length);
         fullscreenImg.innerHTML = medias[index].content;
         fullscreenTitle.innerText = medias[index].title;
     }

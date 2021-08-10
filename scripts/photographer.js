@@ -58,6 +58,8 @@ export default class Photographer {
                 <p><span id="total_likes"></span> <i class="fas fa-heart"></i></p>
             </div>
             <p>${this.priceMedias}</p> `;
+
+            document.getElementById("form_name").innerText = this.name;
         }
     }
 

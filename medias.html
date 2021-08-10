@@ -57,6 +57,39 @@
 
     <div id="banner"></div>
 
+    <div id="background"></div>
+
+    <section id="form">
+        <div class="form">
+            <div class="form__container">
+                <div class="form__header">
+                    <p>Contactez-moi</p><i id="closeForm" class="fas fa-times cursorPointer"></i>
+                </div>
+                <div class="form__header"><p id="form_name"></p></div>
+    
+                <form action="submit" id="submit">
+                    <label for="firstname">Prénom</label>
+                    <input type="text" name="firstname" id="firstname">
+                    <label for="lastname">Nom</label>
+                    <input type="text" name="lastname" id="lastname">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" required>
+                    <div class="form__message">
+                        <label for="message">Votre message</label>
+                        <textarea name="message" id="message" cols="30" rows="10"></textarea>
+                    </div>
+    
+                    <button type="submit" class="cursorPointer">Envoyer</button>
+                </form>
+            </div>
+            <div id="success">
+                <h1>Merci !</h1>
+                <p>Votre message a bien été reçu.</p>
+                <i class="far fa-envelope"></i>
+            </div>
+        </div>
+    </section>
+
     <script src="scripts/main.js" type="module"></script>
 </body>
 
