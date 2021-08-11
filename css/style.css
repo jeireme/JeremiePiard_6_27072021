@@ -4,7 +4,7 @@ body {
 }
 
 .medias {
-  max-width: 1230px;
+  max-width: 1250px;
 }
 
 .header {
@@ -14,7 +14,7 @@ body {
   align-items: center;
   color: #901C1C;
   height: 60px;
-  width: 1230px;
+  width: 1250px;
   margin: 40px auto 75px auto;
 }
 .header--medias {
@@ -62,13 +62,14 @@ body {
 .filters__tags__name {
   border: 1px solid #e9e4e4;
   border-radius: 20px;
-  padding: 2px 5px;
+  padding: 3px 5px;
   margin: 0px -1px;
   font-size: 0.75rem;
   font-weight: 600;
 }
 .filters__tags__name--medias {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  padding: 1px 8px;
 }
 .filters__tags__name:hover {
   border: 1px solid #DB8878;
@@ -93,13 +94,13 @@ body {
   align-items: center;
   position: fixed;
   bottom: -2px;
-  left: 70vw;
-  width: 350px;
-  height: 75px;
+  left: 66vw;
+  width: 280px;
+  height: 70px;
   padding: 0 30px;
   margin: 0;
   border-radius: 7px 7px 0 0;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   font-weight: bolder;
   background-color: #DB8878;
 }
@@ -134,7 +135,7 @@ body {
   align-items: center;
 }
 .profile--medias {
-  height: 100px;
+  height: 85px;
 }
 .profile__picture {
   line-height: 0;
@@ -160,7 +161,7 @@ body {
   white-space: nowrap;
 }
 .profile__name--medias {
-  font-size: 4.4rem;
+  font-size: 4rem;
   margin: 7px 0 0px -2px;
 }
 .profile__location {
@@ -169,7 +170,7 @@ body {
   font-size: 0.8em;
 }
 .profile__location--medias {
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   margin-top: -5px;
 }
 .profile__biography {
@@ -178,7 +179,7 @@ body {
 }
 .profile__biography--medias {
   margin-top: 19px;
-  font-size: 1.23em;
+  font-size: 1.1em;
 }
 .profile__tariff {
   margin: 0px auto 5px auto;
@@ -191,8 +192,9 @@ body {
   flex-direction: row;
   justify-content: space-between;
   border-radius: 10px;
-  width: 1230px;
-  height: 230px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
   background-color: #fafafa;
   margin: auto;
   padding: 55px;
@@ -202,8 +204,8 @@ body {
   display: grid;
   grid-template: 1fr 1fr/1fr 1fr 1fr;
   grid-gap: 20px 100px;
-  width: 1340px;
-  margin: 50px auto 100px;
+  width: 100%;
+  margin: 50px auto 85px;
 }
 
 .medias {
@@ -226,7 +228,7 @@ body {
   align-items: center;
   width: 99%;
   height: 60px;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   margin: auto;
   color: #901C1C;
 }
@@ -242,9 +244,8 @@ body {
   top: -15px;
   left: 70px;
   height: 70px;
-  width: 185px;
-  background-color: blue;
-  font-size: 1.4rem;
+  width: 160px;
+  font-size: 1.2rem;
   font-weight: bolder;
   border: none;
   border-radius: 5px;

@@ -7,14 +7,14 @@ body {
 }
 
 .medias {
-  max-width: 1230px;
+  max-width: 1250px;
 }
 
 .header {
   @include flexRowBetweenCenter;
   color: $rust;
   height: 60px;
-  width: 1230px;
+  width: 1250px;
   margin: 40px auto 75px auto;
   &--medias {
     margin: 40px auto 33px 0px;
@@ -56,12 +56,13 @@ body {
     &__name {
       border: 1px solid rgb(233, 228, 228);
       border-radius: 20px;
-      padding: 2px 5px;
+      padding: 3px 5px;
       margin: 0px -1px;
       font-size: 0.75rem;
       font-weight: 600;
       &--medias {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+        padding: 1px 8px;
       }
       &:hover {
         border: 1px solid $light-rust;
@@ -90,13 +91,13 @@ body {
   @include flexRowBetweenCenter;
   position: fixed;
   bottom: -2px;
-  left: 70vw;
-  width: 350px;
-  height: 75px;
+  left: 66vw;
+  width: 280px;
+  height: 70px;
   padding: 0 30px;
   margin: 0;
   border-radius: 7px 7px 0 0;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   font-weight: bolder;
   background-color: $light-rust;
   p {
@@ -123,7 +124,7 @@ body {
 .profile {
   @include flexColumnCenter;
   &--medias {
-    height: 100px;
+    height: 85px;
   }
   &__picture {
     line-height: 0;
@@ -146,7 +147,7 @@ body {
     font-size: 2.3rem;
     white-space: nowrap;
     &--medias {
-      font-size: 4.4rem;
+      font-size: 4rem;
       margin: 7px 0 0px -2px;
     }
   }
@@ -155,7 +156,7 @@ body {
     color: $rust;
     font-size: 0.8em;
     &--medias {
-      font-size: 1.7rem;
+      font-size: 1.6rem;
       margin-top: -5px;
     }
   }
@@ -164,7 +165,7 @@ body {
     font-size: 0.65em;
     &--medias {
       margin-top: 19px;
-      font-size: 1.23em;
+      font-size: 1.1em;
     }
   }
   &__tariff {
@@ -177,8 +178,9 @@ body {
 #description {
   @include flexRowBetween;
   border-radius: 10px;
-  width: 1230px;
-  height: 230px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
   background-color: #fafafa;
   margin: auto;
   padding: 55px;
@@ -188,8 +190,8 @@ body {
   display: grid;
   grid-template: 1fr 1fr / 1fr 1fr 1fr;
   grid-gap: 20px 100px;
-  width: 1340px;
-  margin: 50px auto 100px;
+  width: 100%;
+  margin: 50px auto 85px;
 }
 
 .medias {
@@ -204,7 +206,7 @@ body {
     @include flexRowBetweenCenter;
     width: 99%;
     height: 60px;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     margin: auto;
     color: $rust;
     > p {
@@ -221,9 +223,8 @@ body {
   top: -15px;
   left: 70px;
   height: 70px;
-  width: 185px;
-  background-color: blue;
-  font-size: 1.4rem;
+  width: 160px;
+  font-size: 1.2rem;
   font-weight: bolder;
   border: none;
   border-radius: 5px;
