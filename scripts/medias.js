@@ -22,7 +22,7 @@ export default class Medias {
         ${this.content = isImageOrVideo(this.isImage, this.isVideo)}
         <div class="medias__header">
             <p>${this.title}</p>
-            <p><span id="likes_id_${this.id}">${this.likes}</span> <i id="${this.id}" class="fas fa-heart cursorPointer"></i></p>
+            <p class="medias__header__likes"><span id="likes_id_${this.id}">${this.likes}</span> <i id="${this.id}" class="fas fa-heart cursorPointer"></i></p>
         </div> `;
         gallery.appendChild(this.media);
     }

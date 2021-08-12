@@ -189,7 +189,7 @@ body {
 #gallery {
   display: grid;
   grid-template: 1fr 1fr / 1fr 1fr 1fr;
-  grid-gap: 20px 100px;
+  grid-gap: 20px 90px;
   width: 100%;
   margin: 50px auto 85px;
 }
@@ -209,11 +209,15 @@ body {
     font-size: 1.5rem;
     margin: auto;
     color: $rust;
+    &__likes {
+      padding-right: 2px;
+    }
     > p {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
       max-width: 280px;
+      // margin: auto;
     }
   }
 }
