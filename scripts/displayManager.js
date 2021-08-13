@@ -125,7 +125,7 @@ function openForm(event) {
 }
 
 function closeForm(event) {
-    document.getElementById("form").style.height = "0";
+    if (!window.matchMedia("(max-width: 1000px)").matches) document.getElementById("form").style.height = "0";
     document.getElementById("form").style.opacity = 0;
     document.getElementById("form").style.pointerEvents = "none";
     document.getElementById("background").style.backgroundColor = "transparent";

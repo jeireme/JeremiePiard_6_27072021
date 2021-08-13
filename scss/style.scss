@@ -18,16 +18,36 @@ body {
   margin: 40px auto 75px auto;
   &--medias {
     margin: 40px auto 33px 0px;
+    @media screen and (max-width: 1000px) {
+      height: auto;
+      margin-top: -10px;
+      margin-bottom: 0px;
+    }
   }
   &__logo {
     width: 215px;
     margin-right: -6px;
+    @media screen and (max-width: 1000px) {
+      width: 170px;
+      margin: 0 0 0 15px;
+    }
   }
   &__title {
     font-size: 2.25rem;
     padding-bottom: 7px;
     font-weight: normal;
     white-space: nowrap;
+    @media screen and (max-width: 1000px) {
+      order: 2;
+      font-size: 0.9rem;
+      margin: 6px 20px 0 0;
+    }
+  }
+  @media screen and (max-width: 1000px) {
+    @include flexRowBetweenCenter;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    width: auto;
   }
 }
 
@@ -45,6 +65,9 @@ body {
     font-weight: bold;
     background-color: $light-rust;
   }
+  @media screen and (max-width: 1000px) {
+    display: none;
+  }
 }
 
 .filters {
@@ -56,16 +79,23 @@ body {
     &__name {
       border: 1px solid rgb(233, 228, 228);
       border-radius: 20px;
-      padding: 3px 5px;
+      padding: 2px 5px;
       margin: 0px -1px;
       font-size: 0.75rem;
       font-weight: 600;
       &--medias {
         font-size: 1.1rem;
-        padding: 1px 8px;
+        padding: 1px 6px;
+        @media screen and (max-width: 1000px) {
+          font-size: 0.85rem;
+          text-transform: capitalize;
+        }
       }
       &:hover {
         border: 1px solid $light-rust;
+      }
+      @media screen and (max-width: 1000px) {
+        margin: 2px -1px;
       }
     }
     &:checked {
@@ -78,6 +108,25 @@ body {
         }
       }
     }
+  }
+  &--medias {
+    @media screen and (max-width: 1000px) {
+      @include flexStartCenter;
+      flex-wrap: wrap;
+      div {
+        margin: 2px 0;
+      }
+    }
+  }
+}
+
+#filters {
+  @media screen and (max-width: 1000px) {
+    @include flexCenter;
+    order: 3;
+    flex-wrap: wrap;
+    max-width: 320px;
+    margin: 20px auto;
   }
 }
 
@@ -103,6 +152,9 @@ body {
   p {
     margin: 0;
   }
+  @media screen and (max-width: 1000px) {
+    display: none;
+  }
 }
 
 #profiles {
@@ -112,12 +164,24 @@ body {
   width: 1500px;
   margin: auto;
   margin-bottom: 150px;
+  @media screen and (max-width: 1000px) {
+    margin-top: 110px;
+    grid-template: 1fr / 1fr;
+    grid-row-gap: 40px;
+    margin-bottom: 50px;
+    width: auto;
+  }
 }
 
 .photographer {
   @include flexColumnBetween;
   &--medias {
     @include flexColumnBetweenStart;
+    @media screen and (max-width: 1000px) {
+      @include flexColumnStart;
+      height: fit-content;
+      width: 100%;
+    }
   }
 }
 
@@ -125,6 +189,9 @@ body {
   @include flexColumnCenter;
   &--medias {
     height: 85px;
+    @media screen and (max-width: 1000px) {
+      height: auto;
+    }
   }
   &__picture {
     line-height: 0;
@@ -137,6 +204,10 @@ body {
       @include flexColumnCenter;
       > img {
         height: 220px;
+        @media screen and (max-width: 1000px) {
+          height: 110px;
+          margin-top: 0px;
+        }
       }
     }
   }
@@ -149,6 +220,13 @@ body {
     &--medias {
       font-size: 4rem;
       margin: 7px 0 0px -2px;
+      @media screen and (max-width: 1000px) {
+        font-size: 2.5rem;
+        white-space: inherit;
+        line-height: 35px;
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
     }
   }
   &__location {
@@ -158,6 +236,10 @@ body {
     &--medias {
       font-size: 1.6rem;
       margin-top: -5px;
+      @media screen and (max-width: 1000px) {
+        font-size: 0.9rem;
+        height: fit-content;
+      }
     }
   }
   &__biography {
@@ -166,6 +248,11 @@ body {
     &--medias {
       margin-top: 19px;
       font-size: 1.1em;
+      @media screen and (max-width: 1000px) {
+        font-size: 0.85rem;
+        color: grey;
+        margin: 5px 0;
+      }
     }
   }
   &__tariff {
@@ -184,6 +271,12 @@ body {
   background-color: #fafafa;
   margin: auto;
   padding: 55px;
+  @media screen and (max-width: 1000px) {
+    background-color: inherit;
+    padding: 20px;
+    width: 100%;
+    margin: 0;
+  }
 }
 
 #gallery {
@@ -192,6 +285,11 @@ body {
   grid-gap: 20px 90px;
   width: 100%;
   margin: 50px auto 85px;
+  @media screen and (max-width: 1000px) {
+    grid-template: 1fr / 1fr;
+    row-gap: 10px;
+    margin-top: 20px;
+  }
 }
 
 .medias {
@@ -201,6 +299,11 @@ body {
     width: 100%;
     border-radius: 5px;
     object-fit: cover;
+    @media screen and (max-width: 1000px) {
+      aspect-ratio: 1.75;
+      width: 88%;
+      margin: auto;
+    }
   }
   &__header {
     @include flexRowBetweenCenter;
@@ -209,6 +312,11 @@ body {
     font-size: 1.5rem;
     margin: auto;
     color: $rust;
+    @media screen and (max-width: 1000px) {
+      width: 87%;
+      font-size: 1rem;
+      height: 35px;
+    }
     &__likes {
       padding-right: 2px;
     }
@@ -217,7 +325,6 @@ body {
       overflow: hidden;
       text-overflow: ellipsis;
       max-width: 280px;
-      // margin: auto;
     }
   }
 }
@@ -239,6 +346,15 @@ body {
     background-color: #db8876;
     color: black;
   }
+  @media screen and (max-width: 1000px) {
+    position: fixed;
+    transform: translate(-50%, -50%);
+    font-weight: normal;
+    font-size: 1.1rem;
+    height: 35px;
+    top: 93vh;
+    left: 50vw;
+  }
 }
 
 #background {
@@ -249,6 +365,9 @@ body {
   width: 100vw;
   height: 100vh;
   transition: background-color 1s;
+  @media screen and (max-width: 1000px) {
+    display: none;
+  }
 }
 
 #form {
@@ -261,6 +380,10 @@ body {
   height: 0;
   transition: all 0.8s;
   pointer-events: none;
+  @media screen and (max-width: 1000px) {
+    height: 100vh;
+    transition: all 0.4s;
+  }
 }
 .form {
   @include flexColumnBetween;
@@ -268,9 +391,17 @@ body {
   background-color: #db8876;
   width: 600px;
   padding: 20px 30px;
+  @media screen and (max-width: 1000px) {
+    width: 100%;
+    height: 100%;
+  }
   &__container {
     i {
       visibility: visible;
+    }
+    @media screen and (max-width: 1000px) {
+      height: 100%;
+      padding: 20px;
     }
   }
   &__header {
@@ -280,6 +411,14 @@ body {
     i {
       color: white;
       -webkit-text-stroke: 5.5px #db8876;
+      @media screen and (max-width: 1000px) {
+        -webkit-text-stroke: 3px #db8876;
+        font-size: 0.9em;
+      }
+    }
+    @media screen and (max-width: 1000px) {
+      font-size: 2.3em;
+      height: 45px;
     }
   }
   form {
@@ -288,6 +427,9 @@ body {
     label {
       margin: 10px 0 3px 0;
       font-size: 2em;
+      @media screen and (max-width: 1000px) {
+        font-size: 1.4em;
+      }
     }
     input {
       border: none;
@@ -295,6 +437,9 @@ body {
       border-radius: 5px;
       font-size: 1.5em;
       padding-left: 10px;
+      @media screen and (max-width: 1000px) {
+        height: 45px;
+      }
     }
   }
   &__message {
@@ -306,6 +451,10 @@ body {
       padding: 10px;
       height: 150px;
       resize: none;
+      @media screen and (max-width: 1000px) {
+        height: 120px;
+        margin-top: 4px;
+      }
     }
   }
   button {
@@ -318,6 +467,11 @@ body {
     border: none;
     color: white;
     background-color: $rust;
+    @media screen and (max-width: 1000px) {
+      margin: auto;
+      height: 35px;
+      margin-top: 25px;
+    }
   }
 }
 
@@ -330,12 +484,19 @@ body {
   transform: translate(-50%, -50%);
   font-size: 2em;
   h1 {
-    margin: 0;
     font-size: 2.5em;
   }
   i {
     font-size: 2.5em;
     padding-top: 30px;
+    @media screen and (max-width: 1000px) {
+      padding-top: 0px;
+      font-size: 1.6em;
+    }
+  }
+  @media screen and (max-width: 1000px) {
+    font-size: 1.4em;
+    text-align: center;
   }
 }
 
@@ -359,6 +520,12 @@ body {
       margin-top: 15px;
       font-size: 2.2em;
       -webkit-text-stroke: 5.5px white;
+      @media screen and (max-width: 1000px) {
+        right: -50.5px;
+        font-size: 1.2em;
+        margin-top: 19px;
+        -webkit-text-stroke: 1.4px white;
+      }
     }
   }
   #image {
@@ -369,17 +536,44 @@ body {
     img {
       height: 80vh;
       cursor: auto;
+      @media screen and (max-width: 1000px) {
+        height: 38vh;
+        object-fit: content;
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+      }
     }
     video {
       height: 80vh;
+      @media screen and (max-width: 1000px) {
+        height: 38vh;
+        object-fit: content;
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+      }
     }
   }
   p {
     margin: 10px 0;
+    @media screen and (max-width: 1000px) {
+      margin: 0;
+    }
   }
   i {
     margin: 0 30px 70px 30px;
     font-size: 2em;
+  }
+  @media screen and (max-width: 1000px) {
+    #left {
+      font-size: 1em;
+      margin: 0 10px 10px 24px;
+    }
+    #right {
+      font-size: 1em;
+      margin: 0 24px 10px 10px;
+    }
   }
 }
 
@@ -409,6 +603,9 @@ body {
     &:hover {
       cursor: pointer;
     }
+  }
+  @media screen and (max-width: 1000px) {
+    display: none;
   }
 }
 
