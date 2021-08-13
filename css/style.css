@@ -90,6 +90,12 @@ body {
   color: #901C1C;
   margin-left: -10px;
 }
+.filters input {
+  display: none;
+}
+.filters label {
+  margin-right: 5px;
+}
 .filters__tags {
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -360,7 +366,7 @@ body {
   align-items: flex-start;
 }
 .medias__picture {
-  aspect-ratio: 1.18;
+  height: 310px;
   width: 100%;
   border-radius: 5px;
   -o-object-fit: cover;
@@ -368,7 +374,7 @@ body {
 }
 @media screen and (max-width: 1000px) {
   .medias__picture {
-    aspect-ratio: 1.75;
+    height: 190px;
     width: 88%;
     margin: auto;
   }
@@ -426,8 +432,8 @@ body {
     font-weight: normal;
     font-size: 1.1rem;
     height: 35px;
-    top: 93vh;
-    left: 50vw;
+    top: 93%;
+    left: 50%;
   }
 }
 
@@ -648,31 +654,34 @@ body {
 #fullscreen #image {
   background-color: #fff;
   position: relative;
-  height: 100%;
+  width: 55vw;
+  height: 85vh;
   margin-top: 20px;
 }
+@media screen and (max-width: 1000px) {
+  #fullscreen #image {
+    width: 80vw;
+    height: 40vh;
+  }
+}
 #fullscreen #image img {
-  height: 80vh;
+  height: 100%;
   cursor: auto;
 }
 @media screen and (max-width: 1000px) {
   #fullscreen #image img {
-    height: 38vh;
-    -o-object-fit: content;
-       object-fit: content;
+    height: 100%;
     margin: 0px;
     padding: 0px;
     width: 100%;
   }
 }
 #fullscreen #image video {
-  height: 80vh;
+  height: 100%;
 }
 @media screen and (max-width: 1000px) {
   #fullscreen #image video {
-    height: 38vh;
-    -o-object-fit: content;
-       object-fit: content;
+    height: 100%;
     margin: 0px;
     padding: 0px;
     width: 100%;
