@@ -73,7 +73,6 @@ body {
 .filters {
   @include flexCenter;
   color: $rust;
-  margin-left: -10px;
   input {
     display: none;
   }
@@ -390,7 +389,7 @@ body {
   pointer-events: none;
   @media screen and (max-width: 1000px) {
     height: 100vh;
-    transition: all 0.4s;
+    transition: all 0.5s;
   }
 }
 .form {

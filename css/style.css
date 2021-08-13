@@ -88,7 +88,6 @@ body {
   justify-content: center;
   align-items: center;
   color: #901C1C;
-  margin-left: -10px;
 }
 .filters input {
   display: none;
@@ -468,7 +467,7 @@ body {
 @media screen and (max-width: 1000px) {
   #form {
     height: 100vh;
-    transition: all 0.4s;
+    transition: all 0.5s;
   }
 }
 
