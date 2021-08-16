@@ -13,13 +13,14 @@ export default class Medias {
         this.liked = false;
         this.date = data.date;
         this.price = data.price;
+        this.description = data.description;
         this.media = document.createElement('div');
     }
 
     display() {
         this.media.className = "medias " + this.id;
         this.media.innerHTML = `
-        ${this.content = isImageOrVideo(this.isImage, this.isVideo)}
+        ${this.content = isImageOrVideo(this.isImage, this.isVideo, this.description)}
         <div class="medias__header">
             <p>${this.title}</p>
             <p class="medias__header__likes"><span id="likes_id_${this.id}">${this.likes}</span> <i id="${this.id}" class="fas fa-heart cursorPointer"></i></p>
@@ -36,7 +37,7 @@ export default class Medias {
     }
 }
 
-function isImageOrVideo(isImage, isVideo) {
-    if (isImage) return `<img src="img/medias/${isImage}" class="medias__picture image cursorPointer">`;
-    else if (isVideo) return `<video src="img/medias/${isVideo}#t=0.1" preload="metadata" autoplay loop class="medias__picture" controls></video>`;
+function isImageOrVideo(isImage, isVideo, description) {
+    if (isImage) return `<img src="img/medias/${isImage}" class="medias__picture image cursorPointer" alt="${description}">`;
+    else if (isVideo) return `<video src="img/medias/${isVideo}#t=0.1" preload="metadata" autoplay loop class="medias__picture" alt="${description}" controls></video>`;
 }
