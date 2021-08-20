@@ -17,6 +17,8 @@ let optionsDiv;
 let selected;
 let options;
 let totallikes = 0;
+let optionChosen = 1;
+let formContainer;
 
 export default class DisplayManager {
 
@@ -26,7 +28,6 @@ export default class DisplayManager {
     }
 
     home() {
-        console.log("display Home");
         for (let obj of this.profiles) {
             let photographer = new Photographer(obj);
             photographer.display("homepage");
@@ -34,6 +35,7 @@ export default class DisplayManager {
         }
 
         filters = document.getElementById('filters').getElementsByTagName('input');
+
         initFiltersListeners();
 
         let profileLinks = document.getElementsByClassName("profile__picture");
@@ -42,11 +44,11 @@ export default class DisplayManager {
                 sessionStorage.setItem('id', this.id);
             });
         }
+
+        document.getElementsByClassName("skip__btn")[0].addEventListener("click", onSkip);
     }
 
     medias() {
-        console.log("Display ID n°" + sessionStorage.getItem('id'));
-
         // Photographer
         let obj = this.profiles.find(element => element.id == sessionStorage.getItem('id'));
         let photographer = new Photographer(obj);
@@ -54,14 +56,21 @@ export default class DisplayManager {
 
         // Medias
         let photographerMedias = this.media.filter(element => element.photographerId == sessionStorage.getItem('id'));
+
         for (let obj of photographerMedias) {
             let media = new Medias(obj);
+            let mediaId = "heartIcon" + media.id;
             media.display();
             medias.push(media);
             totallikes += media.likes;
-            document.getElementById(media.id).addEventListener("click", onLike);
-            if (media.isImage) document.getElementsByClassName(media.id)[0].querySelector('img').addEventListener("click", onFullscreen);
+            document.getElementById(mediaId).addEventListener("click", onLike);
+            document.getElementById(mediaId).addEventListener("keydown", onLike);
+            if (media.isImage) {
+                document.getElementsByClassName(media.id)[0].querySelector('img').addEventListener("click", onFullscreen);
+                document.getElementsByClassName(media.id)[0].querySelector('img').addEventListener("keydown", onFullscreen);
+            }
         }
+
         document.getElementById("total_likes").innerText = totallikes;
 
         // init sorting options
@@ -80,15 +89,25 @@ export default class DisplayManager {
         leftBtn = document.getElementById("left");
         rightBtn = document.getElementById("right");
         document.getElementById("close").addEventListener("click", onClose);
+        document.getElementById("close").addEventListener("keydown", onClose);
         document.getElementById("left").addEventListener("click", onLeft);
+        document.getElementById("left").addEventListener("keydown", onLeft);
         document.getElementById("right").addEventListener("click", onRight);
+        document.getElementById("right").addEventListener("keydown", onRight);
 
         // init form contact
+        formContainer = document.getElementsByClassName("form__container")[0];
         document.getElementsByClassName("contact")[0].addEventListener("click", openForm);
         document.getElementById("closeForm").addEventListener("click", closeForm);
 
         // init submit
         document.getElementById("submit").addEventListener("submit", onSubmit);
+
+        // accessibility
+        document.getElementById("submitBtn").addEventListener("keydown", focusLoopStart);
+        document.getElementById("firstFormInput").addEventListener("keydown", focusLoopEnd);
+        document.getElementById("closeForm").addEventListener("keydown", closeForm);
+        document.getElementById("footer").addEventListener("keydown", focusTopOfThePage);
     }
 
     static sorting() {
@@ -116,31 +135,68 @@ export default class DisplayManager {
     }
 }
 
+function onSkip(event) {
+    document.getElementsByClassName("photographer")[0].focus();
+}
+
 function openForm(event) {
     if (window.matchMedia("(max-width: 1000px)").matches) document.body.style.overflow = "hidden";
     document.getElementById("form").style.height = "100vh";
     document.getElementById("form").style.opacity = 1;
     document.getElementById("form").style.pointerEvents = "all";
     document.getElementById("background").style.backgroundColor = "rgba(255, 255, 255, 0.787)";
-    
+
+    if (formContainer.style.visibility == "hidden") document.getElementById("closeForm").focus();
+    else formContainer.focus();
+
+    document.addEventListener("keydown", closeFormOnEscape);
+}
+
+function closeFormOnEscape(event) {
+    if (event.key == "Escape") closeForm("notAnEvent");
 }
 
 function closeForm(event) {
+    if (formContainer.style.visibility == "hidden" && event.shiftKey && event.key == "Tab") console.log("Fermeture automatique du formulaire");
+    else if (event !== "notAnEvent" && event.key && event.key !== "Enter") return;
+
     if (!window.matchMedia("(max-width: 1000px)").matches) document.getElementById("form").style.height = "0";
     if (window.matchMedia("(max-width: 1000px)").matches) document.body.style.overflow = "auto";
+
     document.getElementById("form").style.opacity = 0;
     document.getElementById("form").style.pointerEvents = "none";
     document.getElementById("background").style.backgroundColor = "transparent";
+    document.removeEventListener("keydown", closeForm);
+
+    if (event == "notAnEvent" || event.key == "Enter") document.getElementById("description").focus();
+}
+
+function focusTopOfThePage(event) {
+    if (event.key == 'Tab') document.getElementById("description").focus();
+}
+
+function focusLoopStart(event) {
+    if (event.key == 'Tab') formContainer.focus();
+}
+
+function focusLoopEnd(event) {
+    if (event.shiftKey && event.key == 'Tab') document.getElementById("submitBtn").focus();
 }
 
 function onSubmit(event) {
     event.preventDefault()
-    console.log("Envoie du formulaire");
-    document.getElementsByClassName("form__container")[0].style.visibility = "hidden";
+    formContainer.style.visibility = "hidden";
     document.getElementById("success").style.display = "flex";
+    document.getElementById("messageSuccess").addEventListener("keydown", focusCloseButton);
+}
+
+function focusCloseButton(event) {
+    if (event.key == "Tab") closeForm("notAnEvent");
 }
 
 function onFullscreen(event) {
+    if (event.key && event.key !== "Enter") return;
+
     for (const media of medias) if (media.content == event.currentTarget.outerHTML) {
         fullscreen.style.display = "flex";
         fullscreenImg.innerHTML = media.content;
@@ -153,7 +209,8 @@ function onFullscreen(event) {
     if (index == 0) {
         leftBtn.style.color = "#901c1c41";
         leftBtn.style.cursor = "auto";
-    } else if (index == medias.length-1) {
+    }
+    else if (index == medias.length - 1) {
         rightBtn.style.color = "#901c1c41";
         rightBtn.style.cursor = "auto";
     }
@@ -166,9 +223,31 @@ function onFullscreen(event) {
         right.style.color = "#901C1C";
         right.style.cursor = "pointer";
     }
+
+    document.getElementById("fullscreen").focus();
+    document.addEventListener("keydown", fullscreenKeyControls);
+    document.getElementById("left").addEventListener("keydown", stayOnLeft);
+    document.getElementById("right").addEventListener("keydown", stayOnRight);
+
 }
 
-function onLeft() {
+function stayOnLeft(event) {
+    if (event.shiftKey && event.key == "Tab") event.preventDefault();
+}
+
+function stayOnRight(event) {
+    if (!event.shiftKey && event.key == "Tab") event.preventDefault();
+}
+
+function fullscreenKeyControls(event) {
+    if (event.key == "ArrowLeft") onLeft("notAnEvent");
+    else if (event.key == "ArrowRight") onRight("notAnEvent");
+    else if (event.key == "Escape") onClose("notAnEvent");
+}
+
+function onLeft(event) {
+    if (event !== "notAnEvent" && event.key && event.key !== "Enter") return;
+
     if (index - 1 >= 0) {
         --index;
         fullscreenImg.innerHTML = medias[index].content;
@@ -179,13 +258,18 @@ function onLeft() {
     if (index == 0) {
         leftBtn.style.color = "#901c1c41";
         leftBtn.style.cursor = "auto";
-    } else if (index == medias.length - 2) {
+    }
+    else if (index == medias.length - 2) {
         right.style.color = "#901C1C";
         right.style.cursor = "pointer";
     }
+
+    document.getElementById("fullscreen").focus();
 }
 
-function onRight() {
+function onRight(event) {
+    if (event !== "notAnEvent" && event.key && event.key !== "Enter") return;
+
     if (index + 1 < medias.length) {
         index++;
         fullscreenImg.innerHTML = medias[index].content;
@@ -196,26 +280,35 @@ function onRight() {
     if (index == medias.length-1) {
         rightBtn.style.color = "#901c1c41";
         rightBtn.style.cursor = "auto";
-    } else if (index == 1) {
+    }
+    else if (index == 1) {
         leftBtn.style.color = "#901C1C";
         leftBtn.style.cursor = "pointer";
     }
+
+    document.getElementById("fullscreen").focus();
 }
 
-function onClose() {
+function onClose(event) {
+    if (event !== "notAnEvent" && event.key && event.key !== "Enter") return;
     document.body.style.overflow = "auto";
     fullscreen.style.display = "none";
+    document.removeEventListener("keydown", fullscreenKeyControls);
+    document.getElementById(fullscreenImg.querySelector('img').id).focus();
 }
 
 function onLike(event) {
-    const mediaLiked = document.getElementById("likes_id_" + event.target.id);
+    if (event.key && event.key !== "Enter") return;
+    const mediaLiked = document.getElementById("likes_id_" + event.target.id.replace('heartIcon', ''));
+
     for (let media of medias) {
-        if (media.id == event.target.id & !media.liked) {
+        let mediaId = "heartIcon" + media.id;
+        if (mediaId == event.target.id & !media.liked) {
             mediaLiked.innerText = ++media.likes;
             document.getElementById("total_likes").innerText = ++totallikes;
             media.liked = true;
         }
-        else if (media.id == event.target.id & media.liked) {
+        else if (mediaId == event.target.id & media.liked) {
             mediaLiked.innerText = --media.likes;
             document.getElementById("total_likes").innerText = --totallikes;
             media.liked = false;
@@ -226,23 +319,50 @@ function onLike(event) {
 function initSortingListeners() {
     selectionDiv.style.display = "none";
     optionsDiv.style.display = "block";
+    document.addEventListener("keydown", keyboardSelectOption);
+}
+
+function keyboardSelectOption(event) {
+    if (event.key == "Enter") return;
+
+    if (event.key == "ArrowUp") --optionChosen;
+    else if (event.key == "ArrowDown") ++optionChosen;
+
+    if (optionChosen > 3) optionChosen = 1;
+    else if (optionChosen < 1) optionChosen = 3;
+
+    event.view.event.preventDefault();
+    document.getElementById("choice" + optionChosen).focus();
 }
 
 function selectOption(event) {
     const userChoice = document.getElementById(event.target.id).querySelector('h3').innerHTML;
+
     if (event.target.id != "choice1") {
         const choice1 = document.getElementById("choice1").querySelector('h3');
         document.getElementById(event.target.id).querySelector('h3').innerHTML = choice1.innerHTML;
         choice1.innerHTML = userChoice;
         selected.innerHTML = userChoice;
     }
+
     optionsDiv.style.display = "none";
     selectionDiv.style.display = "flex";
     DisplayManager.sorting(userChoice);
+    document.removeEventListener("keydown", keyboardSelectOption);
 }
 
 function initFiltersListeners() {
-    for (let filter of filters) filter.addEventListener("change", onFilterChange);
+    for (let filter of filters) {
+        filter.addEventListener("change", onFilterChange);
+        filter.addEventListener("keydown", onEnter);
+    }
+}
+
+function onEnter(event) {
+    if (event.key == "Enter") {
+        event.target.checked ? event.target.removeAttribute("checked", "checked") : event.target.setAttribute("checked", "checked");
+        onFilterChange();
+    }
 }
 
 function onFilterChange() {

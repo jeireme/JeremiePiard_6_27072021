@@ -7,6 +7,17 @@ body {
   max-width: 1250px;
 }
 
+.displayNone {
+  display: none;
+}
+
+.profileLink {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+}
+
 .header {
   display: flex;
   flex-direction: row;
@@ -90,7 +101,9 @@ body {
   color: #901C1C;
 }
 .filters input {
-  display: none;
+  opacity: 0;
+  width: 0;
+  margin: 0;
 }
 .filters label {
   margin-right: 5px;
@@ -100,6 +113,12 @@ body {
      -moz-appearance: none;
           appearance: none;
 }
+.filters__tags:focus + .filters__tags__name {
+  border: 1px solid #DB8878;
+}
+.filters__tags:focus:checked + .filters__tags__name {
+  background-color: #701717;
+}
 .filters__tags__name {
   border: 1px solid #e9e4e4;
   border-radius: 20px;
@@ -107,6 +126,7 @@ body {
   margin: 0px -1px;
   font-size: 0.75rem;
   font-weight: 600;
+  transition: all 0.1s;
 }
 .filters__tags__name--medias {
   font-size: 1.1rem;
@@ -168,6 +188,7 @@ body {
   justify-content: space-between;
   align-items: center;
   position: fixed;
+  z-index: 2;
   bottom: -2px;
   left: 66vw;
   width: 280px;
@@ -265,7 +286,7 @@ body {
   }
 }
 .profile__name {
-  margin: 20px auto 0px auto;
+  margin: 40px auto 25px auto;
   color: #CC5841;
   font-weight: normal;
   font-size: 2.3rem;

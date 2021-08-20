@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -19,10 +19,12 @@
         <a href="index.html"><img src="img/Logo/logo.svg" class="header__logo" alt="Logo du site FishEye"></a>
     </header>
 
-    <section id="description"></section>
+    <section id="description" tabindex="-1"></section>
+
+    <div id="banner"></div>
 
     <div id="sort">
-        <h3>Trier par</h3>
+        <h3 tabindex="0">Trier par</h3>
         <div>
             <button id="selection">
                 <h3 id="selected__value">Popularité</h3><i class="fas fa-chevron-down fa-lg"></i></i></i>
@@ -43,48 +45,48 @@
 
     <section id="gallery"></section>
 
-    <section id="fullscreen" class="medias__header">
-        <i id="left" class="fas fa-chevron-left cursorPointer"></i>
+    <footer tabindex="0" id="footer"></footer>
+
+    <section tabindex="0" id="fullscreen" class="medias__header">
+        <i tabindex="0" id="left" class="fas fa-chevron-left cursorPointer "></i>
         <div>
             <div class="controls">
                 <div id="image"></div>
-                <i id="close" class="fas fa-times cursorPointer"></i>
+                <i tabindex="0" id="close" class="fas fa-times cursorPointer"></i>
             </div>
-            <p id="title"></p>
+            <p tabindex="0" id="title"></p>
         </div>
-        <i id="right" class="fas fa-chevron-right cursorPointer"></i>
+        <i tabindex="0" id="right" class="fas fa-chevron-right cursorPointer"></i>
     </section>
-
-    <div id="banner"></div>
 
     <div id="background"></div>
 
     <section id="form">
         <div class="form">
-            <div class="form__container">
+            <div class="form__container" tabindex="0">
                 <div class="form__header">
-                    <p>Contactez-moi</p><i id="closeForm" class="fas fa-times cursorPointer"></i>
+                    <p tabindex="0" id="firstFormInput">Contactez-moi</p><i tabindex="0" id="closeForm" class="fas fa-times cursorPointer"></i>
                 </div>
-                <div class="form__header"><p id="form_name"></p></div>
+                <div tabindex="0" class="form__header"><p id="form_name"></p></div>
     
                 <form action="submit" id="submit">
-                    <label for="firstname">Prénom</label>
+                    <label tabindex="0" for="firstname">Prénom</label>
                     <input type="text" name="firstname" id="firstname">
-                    <label for="lastname">Nom</label>
+                    <label tabindex="0" for="lastname">Nom</label>
                     <input type="text" name="lastname" id="lastname">
-                    <label for="email">Email</label>
+                    <label tabindex="0" for="email">Email</label>
                     <input type="email" name="email" id="email" required>
                     <div class="form__message">
-                        <label for="message">Votre message</label>
+                        <label tabindex="0" for="message">Votre message</label>
                         <textarea name="message" id="message" cols="30" rows="10"></textarea>
                     </div>
     
-                    <button type="submit" class="cursorPointer">Envoyer</button>
+                    <button type="submit" class="cursorPointer" id="submitBtn">Envoyer</button>
                 </form>
             </div>
             <div id="success">
-                <h1>Merci !</h1>
-                <p>Votre message a bien été reçu.</p>
+                <h1 tabindex="0">Merci !</h1>
+                <p tabindex="0" id="messageSuccess">Votre message a bien été reçu.</p>
                 <i class="far fa-envelope"></i>
             </div>
         </div>

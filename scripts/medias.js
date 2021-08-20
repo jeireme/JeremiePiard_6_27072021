@@ -20,10 +20,10 @@ export default class Medias {
     display() {
         this.media.className = "medias " + this.id;
         this.media.innerHTML = `
-        ${this.content = isImageOrVideo(this.isImage, this.isVideo, this.description)}
+        ${this.content = isImageOrVideo(this.isImage, this.isVideo, this.description, this.id)}
         <div class="medias__header">
-            <p>${this.title}</p>
-            <p class="medias__header__likes"><span id="likes_id_${this.id}">${this.likes}</span> <i id="${this.id}" class="fas fa-heart cursorPointer"></i></p>
+            <p tabindex="0">${this.title}</p>
+            <p class="medias__header__likes"><span tabindex="0" id="likes_id_${this.id}">${this.likes}</span> <i tabindex="0" id="heartIcon${this.id}" class="fas fa-heart cursorPointer"></i></p>
         </div> `;
         gallery.appendChild(this.media);
     }
@@ -37,7 +37,7 @@ export default class Medias {
     }
 }
 
-function isImageOrVideo(isImage, isVideo, description) {
-    if (isImage) return `<img src="img/medias/${isImage}" class="medias__picture image cursorPointer" alt="${description}">`;
-    else if (isVideo) return `<video src="img/medias/${isVideo}#t=0.1" preload="metadata" autoplay loop class="medias__picture" alt="${description}" controls></video>`;
+function isImageOrVideo(isImage, isVideo, description, id) {
+    if (isImage) return `<img src="img/medias/${isImage}" id="${id}" class="medias__picture image cursorPointer" alt="${description}" tabindex="0">`;
+    else if (isVideo) return `<video src="img/medias/${isVideo}#t=0.1" preload="metadata" autoplay loop id="${id}" class="medias__picture" alt="${description}" controls></video>`;
 }
