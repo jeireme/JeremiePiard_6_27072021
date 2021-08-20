@@ -17,18 +17,18 @@ export default class Photographer {
             let photographer = document.createElement('div');
             photographer.className = "photographer " + this.id;
             photographer.innerHTML = ` 
-                <div class="profile">
-                    <a href="medias.html" class="profile__picture profileLink" id="${this.id}">
+                <div class="profile" aria-label="Profil de ${this.name}">
+                    <a href="medias.html" class="profile__picture profileLink" id="${this.id}"  aria-label="Accéder au profil de ${this.name}">
                         <img src="img/Photographers-md/${this.portrait}" alt="Photo de profil de ${this.name}">
                         <h2 class="profile__name">${this.name}</h2>
                         </a>
                 </div>
-                <div tabindex="0" class="profile">
-                    <p class="profile__location">${this.location}</p>
-                    <p class="profile__biography">${this.tagline}</p>
-                    <p class="profile__tariff">${this.priceHome}</p>
+                <div tabindex="0" class="profile" aria-label="Informations générales concernant ${this.name}">
+                    <p class="profile__location" aria-label="Localisation">${this.location}</p>
+                    <p class="profile__biography" aria-label="Slogan">${this.tagline}</p>
+                    <p class="profile__tariff" aria-label="Tarif journalier">${this.priceHome}</p>
                 </div>
-                <div tabindex="0" class="filters">
+                <div tabindex="0" class="filters" aria-label="Catégories associées à ${this.name}">
                     ${setFilters(this.tags, page)}
                 </div> `;
             profiles.appendChild(photographer);
@@ -38,26 +38,26 @@ export default class Photographer {
             <div class="photographer--medias ${this.id}">
                 <div class="profile">
                     <h2 class="profile__name profile__name--medias">
-                        <span tabindex="0">${this.name}</span> <button class="contact">Contactez-moi</button>
+                        <span tabindex="0" aria-label="Nom du photographe">${this.name}</span> <button class="contact" aria-label="Ouverture d'un formulaire de contact" aria-controls="form" aria-haspopup="true" aria-expanded="false">Contactez-moi</button>
                     </h2>
                 </div>
-                <div tabindex="0" class="profile--medias">
-                    <p class="profile__location profile__location--medias">${this.location}</p>
-                    <p class="profile__biography profile__biography--medias">${this.tagline}</p>
+                <div tabindex="0" class="profile--medias" aria-label="Informations générales concernant ${this.name}">
+                    <p class="profile__location profile__location--medias" aria-label="Localisation">${this.location}</p>
+                    <p class="profile__biography profile__biography--medias" aria-label="Slogan">${this.tagline}</p>
                 </div>
-                <div tabindex="0" class="filters filters--medias">
+                <div tabindex="0" class="filters filters--medias" aria-label="Catégories associées à ${this.name}">
                     ${setFilters(this.tags, page)}
                 </div>
             </div>
             <div href="#" class="profile__picture profile__picture--medias">
-                <img  tabindex="0" src="img/Photographers-md/${this.portrait}" alt="Photo de profil de ${this.name}">
+                <img tabindex="0" src="img/Photographers-md/${this.portrait}" alt="Photo de profil de ${this.name}">
             </div> `;
 
             document.getElementById("banner").innerHTML += `
             <div>
-                <p><span tabindex="0" id="total_likes"></span> <i class="fas fa-heart"></i></p>
+                <p><span tabindex="0" id="total_likes" aria-label="Nombre total de J'aime reçus par ${this.name}"></span> <i class="fas fa-heart"></i></p>
             </div>
-            <p tabindex="0">${this.priceMedias}</p> `;
+            <p tabindex="0" aria-label="Tarif journalier">${this.priceMedias}</p> `;
 
             document.getElementById("form_name").innerText = this.name;
         }

@@ -15,11 +15,11 @@
 
 <body id="index">
     <div class="skip">
-        <a href="#profiles" class="skip__btn">Passer au contenu</a>
+        <a href="#profiles" aria-label="Passer aux profils de photographes" class="skip__btn">Passer au contenu</a>
     </div>
 
-    <header class="header">
-        <a href="index.html"><img src="img/Logo/logo.svg" class="header__logo" alt="Logo du site FishEye"></a>
+    <header class="header" aria-label="Navigation principale">
+        <a href="index.html" aria-label="Logo du site Fisheye / Lien pour recharger la page d'accueil"><img src="img/Logo/logo.svg" class="header__logo" alt="Logo du site FishEye"></a>
         <div tabindex="0" Class="filters" id="filters">
             <input type="checkbox" class="filters__tags" id="portrait" value="portrait"><label for="portrait" class="filters__tags__name cursorPointer">#Portrait</label>
             <input type="checkbox" class="filters__tags" id="art" value="art"><label for="art" class="filters__tags__name cursorPointer">#Art</label>
@@ -33,7 +33,9 @@
         <h1 tabindex="0" class="header__title">Nos photographes</h1>
     </header>
 
-    <section id="profiles"></section>
+    <main>
+        <section id="profiles" aria-label="Profils des photographes"></section>
+    </main>
 
     <script src="scripts/main.js" type="module"></script>
 </body>

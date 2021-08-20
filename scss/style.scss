@@ -14,7 +14,7 @@ body {
   display: none;
 }
 
-.profileLink{
+.profileLink {
   @include flexColumnBetween;
   text-decoration: none;
   // height: 300px; // !
@@ -100,7 +100,7 @@ body {
       }
       &:checked {
         + .filters__tags__name {
-          background-color: #701717; 
+          background-color: #701717;
         }
       }
     }
@@ -351,6 +351,9 @@ body {
     }
     &__likes {
       padding-right: 2px;
+      i {
+        color: inherit;
+      }
     }
     > p {
       white-space: nowrap;
@@ -359,6 +362,45 @@ body {
       max-width: 280px;
     }
   }
+}
+
+@keyframes onLike {
+  15% {
+    font-size: 0.8em;
+  }
+  50% {
+    font-size: 1.12em;
+  }
+}
+
+@keyframes onRemoveLike {
+  50% {
+    font-size: 0.85em;
+  }
+}
+
+.totalLikes {
+  @include flexRowBetweenCenter;
+}
+
+.likeButtonContainer {
+  @include flexCenter;
+  width: 30px;
+  margin: auto;
+}
+
+.notLiked::before {
+  -webkit-text-stroke: 1.5px $rust;
+  color: rgb(255, 232, 232);
+  transition: all 0.3s;
+  animation: onRemoveLike 600ms forwards;
+}
+
+.liked::before {
+  -webkit-text-stroke: 1.5px $rust;
+  color: $rust;
+  transition: all 0.3s;
+  animation: onLike 600ms forwards;
 }
 
 .contact {
@@ -629,9 +671,6 @@ body {
     border: none;
     background-color: #901c1c;
     color: white;
-    > h3 {
-      pointer-events: none;
-    }
     > i {
       color: white;
       pointer-events: none;
@@ -643,6 +682,11 @@ body {
   @media screen and (max-width: 1000px) {
     display: none;
   }
+}
+
+.optionName {
+  font-size: 1.17em;
+  pointer-events: none;
 }
 
 #selection {

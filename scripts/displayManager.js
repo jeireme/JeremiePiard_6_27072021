@@ -79,6 +79,7 @@ export default class DisplayManager {
         selected = document.getElementById("selected__value");
         options = optionsDiv.getElementsByTagName("button");
         selectionDiv.addEventListener("click", initSortingListeners);
+        selectionDiv.addEventListener("keydown", initSortingListenersKeyboard);
         DisplayManager.sorting();
         for (let option of options) option.addEventListener("click", selectOption);
 
@@ -306,13 +307,23 @@ function onLike(event) {
         if (mediaId == event.target.id & !media.liked) {
             mediaLiked.innerText = ++media.likes;
             document.getElementById("total_likes").innerText = ++totallikes;
+            event.target.classList.remove("notLiked");
+            event.target.classList.add("liked");
             media.liked = true;
         }
         else if (mediaId == event.target.id & media.liked) {
             mediaLiked.innerText = --media.likes;
             document.getElementById("total_likes").innerText = --totallikes;
+            event.target.classList.remove("liked");
+            event.target.classList.add("notLiked");
             media.liked = false;
         }
+    }
+}
+
+function initSortingListenersKeyboard(event) {
+    if (event.key == "ArrowDown") {
+        initSortingListeners();
     }
 }
 
@@ -325,8 +336,8 @@ function initSortingListeners() {
 function keyboardSelectOption(event) {
     if (event.key == "Enter") return;
 
-    if (event.key == "ArrowUp") --optionChosen;
-    else if (event.key == "ArrowDown") ++optionChosen;
+    if (event.key == "ArrowUp" || (event.shiftKey && event.key == "Tab")) --optionChosen;
+    else if (event.key == "ArrowDown" || event.key == "Tab") ++optionChosen;
 
     if (optionChosen > 3) optionChosen = 1;
     else if (optionChosen < 1) optionChosen = 3;
@@ -336,11 +347,11 @@ function keyboardSelectOption(event) {
 }
 
 function selectOption(event) {
-    const userChoice = document.getElementById(event.target.id).querySelector('h3').innerHTML;
+    const userChoice = document.getElementById(event.target.id).querySelector('.optionName').innerHTML;
 
     if (event.target.id != "choice1") {
-        const choice1 = document.getElementById("choice1").querySelector('h3');
-        document.getElementById(event.target.id).querySelector('h3').innerHTML = choice1.innerHTML;
+        const choice1 = document.getElementById("choice1").querySelector('.optionName');
+        document.getElementById(event.target.id).querySelector('.optionName').innerHTML = choice1.innerHTML;
         choice1.innerHTML = userChoice;
         selected.innerHTML = userChoice;
     }

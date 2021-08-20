@@ -19,11 +19,12 @@ export default class Medias {
 
     display() {
         this.media.className = "medias " + this.id;
+        this.media.setAttribute("aria-label", "Informations complémentaires du photographe");
         this.media.innerHTML = `
         ${this.content = isImageOrVideo(this.isImage, this.isVideo, this.description, this.id)}
         <div class="medias__header">
             <p tabindex="0">${this.title}</p>
-            <p class="medias__header__likes"><span tabindex="0" id="likes_id_${this.id}">${this.likes}</span> <i tabindex="0" id="heartIcon${this.id}" class="fas fa-heart cursorPointer"></i></p>
+            <div class="totalLikes"><p class="medias__header__likes"><span tabindex="0" id="likes_id_${this.id}" aria-label="Nombre de J'aime">${this.likes}</span> <div class="likeButtonContainer"><i tabindex="0" aria-label="Bouton J'aime" role="button" id="heartIcon${this.id}" class="fas fa-heart notLiked cursorPointer"></i></div></p></div>
         </div> `;
         gallery.appendChild(this.media);
     }

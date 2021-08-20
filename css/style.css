@@ -420,11 +420,72 @@ body {
 .medias__header__likes {
   padding-right: 2px;
 }
+.medias__header__likes i {
+  color: inherit;
+}
 .medias__header > p {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 280px;
+}
+
+@-webkit-keyframes onLike {
+  15% {
+    font-size: 0.8em;
+  }
+  50% {
+    font-size: 1.12em;
+  }
+}
+
+@keyframes onLike {
+  15% {
+    font-size: 0.8em;
+  }
+  50% {
+    font-size: 1.12em;
+  }
+}
+@-webkit-keyframes onRemoveLike {
+  50% {
+    font-size: 0.85em;
+  }
+}
+@keyframes onRemoveLike {
+  50% {
+    font-size: 0.85em;
+  }
+}
+.totalLikes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.likeButtonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  margin: auto;
+}
+
+.notLiked::before {
+  -webkit-text-stroke: 1.5px #901C1C;
+  color: #ffe8e8;
+  transition: all 0.3s;
+  -webkit-animation: onRemoveLike 600ms forwards;
+          animation: onRemoveLike 600ms forwards;
+}
+
+.liked::before {
+  -webkit-text-stroke: 1.5px #901C1C;
+  color: #901C1C;
+  transition: all 0.3s;
+  -webkit-animation: onLike 600ms forwards;
+          animation: onLike 600ms forwards;
 }
 
 .contact {
@@ -752,9 +813,6 @@ body {
   background-color: #901c1c;
   color: white;
 }
-#sort button > h3 {
-  pointer-events: none;
-}
 #sort button > i {
   color: white;
   pointer-events: none;
@@ -766,6 +824,11 @@ body {
   #sort {
     display: none;
   }
+}
+
+.optionName {
+  font-size: 1.17em;
+  pointer-events: none;
 }
 
 #selection {
