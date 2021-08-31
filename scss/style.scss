@@ -17,27 +17,25 @@ body {
 .profileLink {
   @include flexColumnBetween;
   text-decoration: none;
-  // height: 300px; // !
 }
 
 .header {
   @include flexRowBetweenCenter;
   color: $rust;
   height: 60px;
-  width: 1250px;
+  max-width: 1250px;
   margin: 40px auto 75px auto;
   &--medias {
     margin: 40px auto 33px 0px;
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: 1140px) {
       height: auto;
-      margin-top: -10px;
       margin-bottom: 0px;
     }
   }
   &__logo {
     width: 215px;
     margin-right: -6px;
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: 1140px) {
       width: 170px;
       margin: 0 0 0 15px;
     }
@@ -47,13 +45,17 @@ body {
     padding-bottom: 7px;
     font-weight: normal;
     white-space: nowrap;
-    @media screen and (max-width: 1000px) {
-      order: 2;
-      font-size: 0.9rem;
+    @media screen and (max-width: 1140px) {
+      order: 3;
+      font-size: 1.5rem;
       margin: 6px 20px 0 0;
+      @media screen and (max-width: 650px) {
+      font-size: 0.9rem;
+        order: 2;
+      }
     }
   }
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 650px) {
     @include flexRowBetweenCenter;
     margin-top: 30px;
     flex-wrap: wrap;
@@ -83,8 +85,10 @@ body {
 .filters {
   @include flexCenter;
   color: $rust;
+  &--home {
+    min-width: 290px;
+  }
   input {
-    // display: none;
     opacity: 0;
     width: 0;
     margin: 0;
@@ -115,7 +119,7 @@ body {
       &--medias {
         font-size: 1.1rem;
         padding: 1px 6px;
-        @media screen and (max-width: 1000px) {
+        @media screen and (max-width: 1140px) {
           font-size: 0.85rem;
           text-transform: capitalize;
         }
@@ -139,7 +143,7 @@ body {
     }
   }
   &--medias {
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: 1140px) {
       @include flexStartCenter;
       flex-wrap: wrap;
       div {
@@ -189,25 +193,29 @@ body {
 
 #profiles {
   display: grid;
-  grid-template: 1fr 1fr / 1fr 1fr 1fr;
+  grid-template: 1fr / 1fr 1fr 1fr;
   grid-row-gap: 50px;
-  width: 1500px;
+  max-width: 1500px;
   margin: auto;
   margin-bottom: 150px;
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1100px) {
     margin-top: 110px;
-    grid-template: 1fr / 1fr;
+    grid-template: 1fr / 1fr 1fr;
     grid-row-gap: 40px;
     margin-bottom: 50px;
     width: auto;
+    @media screen and (max-width: 650px) {
+      grid-template: 1fr / 1fr;
+    }
   }
+
 }
 
 .photographer {
   @include flexColumnBetween;
   &--medias {
     @include flexColumnBetweenStart;
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: 1140px) {
       @include flexColumnStart;
       height: fit-content;
       width: 100%;
@@ -219,7 +227,7 @@ body {
   @include flexColumnCenter;
   &--medias {
     height: 85px;
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: 1140px) {
       height: auto;
     }
   }
@@ -234,7 +242,7 @@ body {
       @include flexColumnCenter;
       > img {
         height: 220px;
-        @media screen and (max-width: 1000px) {
+        @media screen and (max-width: 1140px) {
           height: 110px;
           margin-top: 0px;
         }
@@ -250,7 +258,7 @@ body {
     &--medias {
       font-size: 4rem;
       margin: 7px 0 0px -2px;
-      @media screen and (max-width: 1000px) {
+      @media screen and (max-width: 1140px) {
         font-size: 2.5rem;
         white-space: inherit;
         line-height: 35px;
@@ -266,7 +274,7 @@ body {
     &--medias {
       font-size: 1.6rem;
       margin-top: -5px;
-      @media screen and (max-width: 1000px) {
+      @media screen and (max-width: 1140px) {
         font-size: 0.9rem;
         height: fit-content;
       }
@@ -278,7 +286,7 @@ body {
     &--medias {
       margin-top: 19px;
       font-size: 1.1em;
-      @media screen and (max-width: 1000px) {
+      @media screen and (max-width: 1140px) {
         font-size: 0.85rem;
         color: grey;
         margin: 5px 0;
@@ -301,7 +309,7 @@ body {
   background-color: #fafafa;
   margin: auto;
   padding: 55px;
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1140px) {
     background-color: inherit;
     padding: 20px;
     width: 100%;
@@ -311,30 +319,37 @@ body {
 
 #gallery {
   display: grid;
-  grid-template: 1fr 1fr / 1fr 1fr 1fr;
+  grid-template: 1fr / 1fr 1fr 1fr;
   grid-gap: 20px 90px;
   width: 100%;
   margin: 50px auto 85px;
-  @media screen and (max-width: 1000px) {
-    grid-template: 1fr / 1fr;
-    row-gap: 10px;
+  @media screen and (max-width: 1140px) {
+    grid-template: 1fr / 1fr 1fr;
+    grid-gap: 20px 40px;
     margin-top: 20px;
+    width: 95%;
+    @media screen and (max-width: 650px) {
+      grid-template: 1fr / 1fr;
+      width: 100%;
+      grid-gap: 20px 0px;
+      margin-top: 20px;
+    }
   }
 }
 
 .medias {
   @include flexColumnBetweenStart;
   &__picture {
-    // aspect-ratio: 1.18;
     height: 310px;
     width: 100%;
     border-radius: 5px;
     object-fit: cover;
     @media screen and (max-width: 1000px) {
-      // aspect-ratio: 1.75;
       height: 190px;
-      width: 88%;
       margin: auto;
+      @media screen and (max-width: 650px) {
+        width: 88%;
+      }
     }
   }
   &__header {
@@ -345,9 +360,11 @@ body {
     margin: auto;
     color: $rust;
     @media screen and (max-width: 1000px) {
-      width: 87%;
       font-size: 1rem;
       height: 35px;
+      @media screen and (max-width: 650px) {
+        width: 87%;
+      }
     }
     &__likes {
       padding-right: 2px;
@@ -389,14 +406,14 @@ body {
   margin: auto;
 }
 
-.notLiked::before {
+.notLiked {
   -webkit-text-stroke: 1.5px $rust;
   color: rgb(255, 232, 232);
   transition: all 0.3s;
   animation: onRemoveLike 600ms forwards;
 }
 
-.liked::before {
+.liked {
   -webkit-text-stroke: 1.5px $rust;
   color: $rust;
   transition: all 0.3s;
@@ -420,13 +437,13 @@ body {
     background-color: #db8876;
     color: black;
   }
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1140px) {
     position: fixed;
     transform: translate(-50%, -50%);
     font-weight: normal;
     font-size: 1.1rem;
     height: 35px;
-    top: 93%; // !
+    top: 93%;
     left: 50%;
   }
 }
@@ -462,9 +479,12 @@ body {
 .form {
   @include flexColumnBetween;
   border-radius: 5px;
+  border: #db8876 2px solid;
   background-color: #db8876;
   width: 600px;
   padding: 20px 30px;
+  height: 80vh;
+  overflow-y: auto;
   @media screen and (max-width: 1000px) {
     width: 100%;
     height: 100%;
@@ -679,7 +699,7 @@ body {
       cursor: pointer;
     }
   }
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1140px) {
     display: none;
   }
 }

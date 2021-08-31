@@ -141,7 +141,10 @@ function onSkip(event) {
 }
 
 function openForm(event) {
-    if (window.matchMedia("(max-width: 1000px)").matches) document.body.style.overflow = "hidden";
+    if (window.matchMedia("(max-width: 1000px)").matches || window.matchMedia("(max-height: 900px)").matches) {
+        document.body.style.overflow = "hidden";
+    }
+
     document.getElementById("form").style.height = "100vh";
     document.getElementById("form").style.opacity = 1;
     document.getElementById("form").style.pointerEvents = "all";
@@ -162,7 +165,7 @@ function closeForm(event) {
     else if (event !== "notAnEvent" && event.key && event.key !== "Enter") return;
 
     if (!window.matchMedia("(max-width: 1000px)").matches) document.getElementById("form").style.height = "0";
-    if (window.matchMedia("(max-width: 1000px)").matches) document.body.style.overflow = "auto";
+    if (document.body.style.overflow == "hidden") document.body.style.overflow = "auto";
 
     document.getElementById("form").style.opacity = 0;
     document.getElementById("form").style.pointerEvents = "none";
