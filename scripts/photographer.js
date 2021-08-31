@@ -74,7 +74,7 @@ export default class Photographer {
 
 function setFilters(tags, page) {
     let html = '';
-    if (page == "homepage") for (let i in tags) html += '<div><input type="checkbox" class="filters__tags displayNone"><label tabindex="0" class="filters__tags__name">#' + tags[i] + '</label></div>';
-    else if (page == "medias") for (let i in tags) html += '<div><input type="checkbox" class="filters__tags displayNone"><label tabindex="0" class="filters__tags__name filters__tags__name--medias">#' + tags[i] + '</label></div>';
+    if (page == "homepage") for (let i in tags) html += '<div><input type="checkbox" class="filters__tags displayNone"><label for="' + tags[i] + '" tabindex="0" class="filters__tags__name">#' + tags[i] + '</label></div>';
+    else if (page == "medias") for (let i in tags) html += '<div><input type="checkbox" class="filters__tags displayNone"><label for="' + tags[i] + '" tabindex="0" class="filters__tags__name filters__tags__name--medias">#' + tags[i] + '</label></div>';
     return html;
 }

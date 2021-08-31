@@ -1,6 +1,7 @@
 body {
   font-family: "DM Sans", sans-serif;
   margin: auto;
+  min-height: 1000px;
 }
 
 .medias {
