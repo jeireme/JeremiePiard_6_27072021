@@ -19,7 +19,7 @@
         <a href="index.html" aria-label="Logo du site Fisheye / Lien vers la page d'accueil"><img src="img/Logo/logo.svg" class="header__logo" alt="Logo du site FishEye"></a>
     </header>
 
-    <section id="description" tabindex="-1" aria-label="Bannière d'informations du photographe" ></section>
+    <section id="description" tabindex="-1" aria-label="Bannière d'informations du photographe"></section>
 
     <div id="banner"></div>
 
@@ -27,11 +27,11 @@
         <h3 tabindex="0">Trier par</h3>
         <div>
             <button id="selection" aria-haspopup="true" aria-controls="options" aria-expanded="false" aria-label="Tri des médias par popularité, par date, ou par titre">
-                <span id="selected__value" class="optionName">Popularité</span><i class="fas fa-chevron-down fa-lg"></i>
+                <span id="selected__value" class="optionName">Popularité</span><em class="fas fa-chevron-down fa-lg"></em>
             </button>
             <div id="options" role="menu" aria-expanded="true" aria-label="Sélectionnez une option">
                 <button id="choice1" role="menuitem" aria-label="Tri par popularité">
-                    <span class="optionName">Popularité</span><i class="fas fa-chevron-up fa-lg"></i>
+                    <span class="optionName">Popularité</span><em class="fas fa-chevron-up fa-lg"></em>
                 </button>
                 <button id="choice2" role="menuitem" aria-label="Tri par date">
                     <span class="optionName">Date</span>
@@ -48,15 +48,15 @@
     <footer tabindex="0" id="footer" aria-label="Fin de la gallerie"></footer>
 
     <section tabindex="0" id="fullscreen" class="medias__header" aria-label="Affichage en plein écran du média sélectionnée avec boutons de navigation">
-        <i tabindex="0" id="left" class="fas fa-chevron-left cursorPointer" role="button" aria-label="Navigation vers le média précédent"></i>
+        <em tabindex="0" id="left" class="fas fa-chevron-left cursorPointer" role="button" aria-label="Navigation vers le média précédent"></em>
         <div>
             <div class="controls">
                 <div id="image"></div>
-                <i tabindex="0" id="close" class="fas fa-times cursorPointer" role="button" aria-label="Fermeture de l'affichage plein écran"></i>
+                <em tabindex="0" id="close" class="fas fa-times cursorPointer" role="button" aria-label="Fermeture de l'affichage plein écran"></em>
             </div>
             <p tabindex="0" id="title" aria-label="Titre"></p>
         </div>
-        <i tabindex="0" id="right" class="fas fa-chevron-right cursorPointer" role="button" aria-label="Navigation vers le média suivant"></i>
+        <em tabindex="0" id="right" class="fas fa-chevron-right cursorPointer" role="button" aria-label="Navigation vers le média suivant"></em>
     </section>
 
     <div id="background"></div>
@@ -65,10 +65,13 @@
         <div class="form">
             <div class="form__container" tabindex="0">
                 <div class="form__header">
-                    <p tabindex="0" id="firstFormInput">Contactez-moi</p><i tabindex="0" id="closeForm" role="button" class="fas fa-times cursorPointer" aria-label="Fermeture de la modale du formulaire"></i>
+                    <p tabindex="0" id="firstFormInput">Contactez-moi</p><em tabindex="0" id="closeForm" role="button" class="fas fa-times cursorPointer"
+                        aria-label="Fermeture de la modale du formulaire"></em>
                 </div>
-                <div tabindex="0" class="form__header"><p id="form_name"></p></div>
-    
+                <div tabindex="0" class="form__header">
+                    <p id="form_name"></p>
+                </div>
+
                 <form action="submit" id="submit" aria-label="Formulaire de contact">
                     <label tabindex="0" for="firstname">Prénom</label>
                     <input type="text" name="firstname" id="firstname">
@@ -80,14 +83,14 @@
                         <label tabindex="0" for="message">Votre message</label>
                         <textarea name="message" id="message" cols="30" rows="10"></textarea>
                     </div>
-    
+
                     <button type="submit" class="cursorPointer" id="submitBtn" aria-label="Validation du formulaire">Envoyer</button>
                 </form>
             </div>
             <div tabindex="0" id="success" aria-label="Message de validation du formulaire">
                 <h1 tabindex="0">Merci !</h1>
                 <p tabindex="0" id="messageSuccess">Votre message a bien été reçu.</p>
-                <i class="far fa-envelope"></i>
+                <em class="far fa-envelope"></em>
             </div>
         </div>
     </section>

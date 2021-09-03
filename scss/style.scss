@@ -369,7 +369,7 @@ body {
     }
     &__likes {
       padding-right: 2px;
-      i {
+      em {
         color: inherit;
       }
     }
@@ -491,7 +491,7 @@ body {
     height: 100%;
   }
   &__container {
-    i {
+    em {
       visibility: visible;
     }
     @media screen and (max-width: 1000px) {
@@ -503,7 +503,7 @@ body {
     @include flexRowBetweenCenter;
     font-size: 4em;
     height: 70px;
-    i {
+    em {
       color: white;
       -webkit-text-stroke: 5.5px #db8876;
       @media screen and (max-width: 1000px) {
@@ -582,7 +582,7 @@ body {
     font-size: 2.5em;
     margin: 0;
   }
-  i {
+  em {
     font-size: 2.5em;
     padding-top: 20px;
     @media screen and (max-width: 1000px) {
@@ -660,7 +660,7 @@ body {
       margin: 0;
     }
   }
-  i {
+  em {
     margin: 0 30px 70px 30px;
     font-size: 2em;
   }
@@ -692,7 +692,7 @@ body {
     border: none;
     background-color: #901c1c;
     color: white;
-    > i {
+    > em {
       color: white;
       pointer-events: none;
     }

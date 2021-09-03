@@ -29,11 +29,10 @@ export default class Photographer {
                     <p class="profile__tariff" aria-label="Tarif journalier">${this.priceHome}</p>
                 </div>
                 <div tabindex="0" class="filters" aria-label="Catégories associées à ${this.name}">
-                    ${setFilters(this.tags, page)}
+                    ${setFilters(this.tags, this.id, page)}
                 </div> `;
             profiles.appendChild(photographer);
-        }
-        else if (page == "medias") {
+        } else if (page == "medias") {
             document.getElementById("description").innerHTML += `
             <div class="photographer--medias ${this.id}">
                 <div class="profile">
@@ -46,7 +45,7 @@ export default class Photographer {
                     <p class="profile__biography profile__biography--medias" aria-label="Slogan">${this.tagline}</p>
                 </div>
                 <div tabindex="0" class="filters filters--medias" aria-label="Catégories associées à ${this.name}">
-                    ${setFilters(this.tags, page)}
+                    ${setFilters(this.tags, this.id, page)}
                 </div>
             </div>
             <div href="#" class="profile__picture profile__picture--medias">
@@ -55,7 +54,7 @@ export default class Photographer {
 
             document.getElementById("banner").innerHTML += `
             <div>
-                <p><span tabindex="0" id="total_likes" aria-label="Nombre total de J'aime reçus par ${this.name}"></span> <i class="fas fa-heart"></i></p>
+                <p><span tabindex="0" id="total_likes" aria-label="Nombre total de J'aime reçus par ${this.name}"></span> <em class="fas fa-heart"></em></p>
             </div>
             <p tabindex="0" aria-label="Tarif journalier">${this.priceMedias}</p> `;
 
@@ -72,9 +71,11 @@ export default class Photographer {
     }
 }
 
-function setFilters(tags, page) {
+function setFilters(tags, id, page) {
     let html = '';
-    if (page == "homepage") for (let i in tags) html += '<div><input type="checkbox" class="filters__tags displayNone"><label for="' + tags[i] + '" tabindex="0" class="filters__tags__name">#' + tags[i] + '</label></div>';
-    else if (page == "medias") for (let i in tags) html += '<div><input type="checkbox" class="filters__tags displayNone"><label for="' + tags[i] + '" tabindex="0" class="filters__tags__name filters__tags__name--medias">#' + tags[i] + '</label></div>';
+    if (page == "homepage")
+        for (let i in tags) html += '<input class="filters__tags displayNone" id="' + id + tags[i] + '" name="' + id + tags[i] + '"><label for="' + id + tags[i] + '" class="filters__tags__name">#' + tags[i] + '</label>';
+    else if (page == "medias")
+        for (let i in tags) html += '<input class="filters__tags displayNone" id="' + id + tags[i] + '" name="' + id + tags[i] + '"><label for="' + id + tags[i] + '" class="filters__tags__name filters__tags__name--medias">#' + tags[i] + '</label>';
     return html;
 }
