@@ -18,7 +18,8 @@ let selected;
 let options;
 let totallikes = 0;
 let optionChosen = 1;
-let formContainer;
+
+let formContainer = document.getElementById("form__container");
 
 export default class DisplayManager {
 
@@ -45,7 +46,7 @@ export default class DisplayManager {
             });
         }
 
-        document.getElementsByClassName("skip__btn")[0].addEventListener("click", onSkip);
+        document.getElementById("skip__btn").addEventListener("click", onSkip);
     }
 
     medias() {
@@ -97,8 +98,7 @@ export default class DisplayManager {
         document.getElementById("right").addEventListener("keydown", onRight);
 
         // init form contact
-        formContainer = document.getElementsByClassName("form__container")[0];
-        document.getElementsByClassName("contact")[0].addEventListener("click", openForm);
+        document.getElementById("contact").addEventListener("click", openForm);
         document.getElementById("closeForm").addEventListener("click", closeForm);
 
         // init submit
@@ -137,7 +137,7 @@ export default class DisplayManager {
 }
 
 function onSkip(event) {
-    document.getElementsByClassName("photographer")[0].focus();
+    document.getElementById("photographer").focus();
 }
 
 function openForm(event) {

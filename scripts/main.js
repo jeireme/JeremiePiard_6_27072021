@@ -2,17 +2,9 @@ import DisplayManager from './displayManager.js';
 
 if (document.body.id == "index") sessionStorage.clear();
 
-const url = "https://raw.githubusercontent.com/jeireme/JeremiePiard_6_27072021/master/data/FishEyeData.json";
+let data = await fetch("https://raw.githubusercontent.com/jeireme/JeremiePiard_6_27072021/master/data/FishEyeData.json");
+let json = await data.json();
+let display = new DisplayManager(json);
 
-fetch(url).then(response => {
-        if (response.ok) return response.json();
-        else throw new Error('Something went wrong');
-    })
-    .then(json => {
-        let display = new DisplayManager(json);
-        if (sessionStorage.getItem('id') == null) display.home();
-        else display.medias();
-    })
-    .catch((error) => {
-        console.log(error)
-    });
+if (sessionStorage.getItem('id') == null) display.home();
+else display.medias();

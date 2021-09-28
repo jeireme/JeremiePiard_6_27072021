@@ -519,7 +519,7 @@ body {
           animation: onLike 600ms forwards;
 }
 
-.contact {
+#contact {
   position: relative;
   top: -15px;
   left: 70px;
@@ -532,13 +532,13 @@ body {
   background-color: #992a2a;
   color: white;
 }
-.contact:hover {
+#contact:hover {
   cursor: pointer;
   background-color: #db8876;
   color: black;
 }
 @media screen and (max-width: 1140px) {
-  .contact {
+  #contact {
     position: fixed;
     transform: translate(-50%, -50%);
     font-weight: normal;

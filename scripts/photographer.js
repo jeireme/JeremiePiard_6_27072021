@@ -15,7 +15,7 @@ export default class Photographer {
         if (page == "homepage") {
             const profiles = document.getElementById("profiles");
             let photographer = document.createElement('div');
-            photographer.className = "photographer " + this.id;
+            photographer.className = `photographer ${this.id}`;
             photographer.innerHTML = ` 
                 <div class="profile" aria-label="Profil de ${this.name}">
                     <a href="medias.html" class="profile__picture profileLink" id="${this.id}"  aria-label="Accéder au profil de ${this.name}">
@@ -37,7 +37,7 @@ export default class Photographer {
             <div class="photographer--medias ${this.id}">
                 <div class="profile">
                     <h2 class="profile__name profile__name--medias">
-                        <span tabindex="0" aria-label="Nom du photographe">${this.name}</span> <button class="contact" aria-label="Ouverture d'un formulaire de contact" aria-controls="form" aria-haspopup="true" aria-expanded="false">Contactez-moi</button>
+                        <span tabindex="0" aria-label="Nom du photographe">${this.name}</span> <button id="contact" aria-label="Ouverture d'un formulaire de contact" aria-controls="form" aria-haspopup="true" aria-expanded="false">Contactez-moi</button>
                     </h2>
                 </div>
                 <div tabindex="0" class="profile--medias" aria-label="Informations générales concernant ${this.name}">
@@ -74,8 +74,8 @@ export default class Photographer {
 function setFilters(tags, id, page) {
     let html = '';
     if (page == "homepage")
-        for (let i in tags) html += '<input class="filters__tags displayNone" id="' + id + tags[i] + '" name="' + id + tags[i] + '"><label for="' + id + tags[i] + '" class="filters__tags__name">#' + tags[i] + '</label>';
+        for (let i in tags) html += `<input class="filters__tags displayNone" id="${id + tags[i]}" name="${id + tags[i]}"><label for="${id + tags[i]}" class="filters__tags__name">#${tags[i]}</label>`;
     else if (page == "medias")
-        for (let i in tags) html += '<input class="filters__tags displayNone" id="' + id + tags[i] + '" name="' + id + tags[i] + '"><label for="' + id + tags[i] + '" class="filters__tags__name filters__tags__name--medias">#' + tags[i] + '</label>';
+        for (let i in tags) html += `<input class="filters__tags displayNone" id="${id + tags[i]}" name="${id + tags[i]}"><label for="${id + tags[i]}" class="filters__tags__name filters__tags__name--medias">#${tags[i]}</label>`;
     return html;
 }
