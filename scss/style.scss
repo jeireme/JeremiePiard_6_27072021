@@ -705,6 +705,17 @@ body {
   }
 }
 
+#error {
+  @include flexColumnCenter;
+  background-color: rgb(253, 207, 207);
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+  padding: 100px;
+  border: 2px rgb(177, 1, 1) solid;
+  display: none;
+}
+
 .optionName {
   font-size: 1.17em;
   pointer-events: none;

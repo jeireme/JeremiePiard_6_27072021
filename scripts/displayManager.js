@@ -1,6 +1,7 @@
 import Photographer from './photographer.js';
 import Medias from './medias.js';
 
+
 let fullscreen;
 let fullscreenTitle;
 let fullscreenImg;
@@ -24,11 +25,12 @@ let formContainer = document.getElementById("form__container");
 export default class DisplayManager {
 
     constructor(data) {
-        this.profiles = data.photographers;
-        this.media = data.media;
+        this.profiles = data ? data.photographers : null;
+        this.media = data ? data.media : null;
     }
 
     home() {
+        console.log("ok");
         for (let obj of this.profiles) {
             let photographer = new Photographer(obj);
             photographer.display("homepage");
@@ -46,7 +48,7 @@ export default class DisplayManager {
             });
         }
 
-        document.getElementById("skip__btn").addEventListener("click", onSkip);
+        // document.getElementById("skip__btn").addEventListener("click", onSkip);
     }
 
     medias() {
@@ -111,6 +113,10 @@ export default class DisplayManager {
         document.getElementById("footer").addEventListener("keydown", focusTopOfThePage);
     }
 
+    errorMessage() {
+        document.getElementById("error").style.display = "flex";
+    }
+
     static sorting() {
         if (selected.innerHTML == "Date") {
             for (let media of medias) media.removeChild();
@@ -118,15 +124,13 @@ export default class DisplayManager {
                 return new Date(a.date) - new Date(b.date);
             });
             for (let media of medias) media.appendChild();
-        }
-        else if (selected.innerHTML == "Titre") {
+        } else if (selected.innerHTML == "Titre") {
             for (let media of medias) media.removeChild();
             medias.sort(function (a, b) {
                 return a.title.localeCompare(b.title);
             });
             for (let media of medias) media.appendChild()
-        }
-        else if (selected.innerHTML == "Popularité") {
+        } else if (selected.innerHTML == "Popularité") {
             for (let media of medias) media.removeChild();
             medias.sort(function (a, b) {
                 return b.likes - a.likes;
@@ -201,20 +205,20 @@ function focusCloseButton(event) {
 function onFullscreen(event) {
     if (event.key && event.key !== "Enter") return;
 
-    for (const media of medias) if (media.content == event.currentTarget.outerHTML) {
-        fullscreen.style.display = "flex";
-        fullscreenImg.innerHTML = media.content;
-        fullscreenTitle.innerText = media.title;
-        document.body.style.overflow = "hidden";
-        index = medias.indexOf(media);
-    }
-    
+    for (const media of medias)
+        if (media.content == event.currentTarget.outerHTML) {
+            fullscreen.style.display = "flex";
+            fullscreenImg.innerHTML = media.content;
+            fullscreenTitle.innerText = media.title;
+            document.body.style.overflow = "hidden";
+            index = medias.indexOf(media);
+        }
+
     // feedback at the end of the list
     if (index == 0) {
         leftBtn.style.color = "#901c1c41";
         leftBtn.style.cursor = "auto";
-    }
-    else if (index == medias.length - 1) {
+    } else if (index == medias.length - 1) {
         rightBtn.style.color = "#901c1c41";
         rightBtn.style.cursor = "auto";
     }
@@ -223,7 +227,7 @@ function onFullscreen(event) {
         leftBtn.style.color = "#901C1C";
         leftBtn.style.cursor = "pointer";
     }
-    if (index < medias.length-1) {
+    if (index < medias.length - 1) {
         right.style.color = "#901C1C";
         right.style.cursor = "pointer";
     }
@@ -262,8 +266,7 @@ function onLeft(event) {
     if (index == 0) {
         leftBtn.style.color = "#901c1c41";
         leftBtn.style.cursor = "auto";
-    }
-    else if (index == medias.length - 2) {
+    } else if (index == medias.length - 2) {
         right.style.color = "#901C1C";
         right.style.cursor = "pointer";
     }
@@ -281,11 +284,10 @@ function onRight(event) {
     }
 
     // feedback at the end of list
-    if (index == medias.length-1) {
+    if (index == medias.length - 1) {
         rightBtn.style.color = "#901c1c41";
         rightBtn.style.cursor = "auto";
-    }
-    else if (index == 1) {
+    } else if (index == 1) {
         leftBtn.style.color = "#901C1C";
         leftBtn.style.cursor = "pointer";
     }
@@ -313,8 +315,7 @@ function onLike(event) {
             event.target.classList.remove("notLiked");
             event.target.classList.add("liked");
             media.liked = true;
-        }
-        else if (mediaId == event.target.id & media.liked) {
+        } else if (mediaId == event.target.id & media.liked) {
             mediaLiked.innerText = --media.likes;
             document.getElementById("total_likes").innerText = --totallikes;
             event.target.classList.remove("liked");

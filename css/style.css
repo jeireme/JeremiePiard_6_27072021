@@ -860,6 +860,23 @@ body {
   }
 }
 
+#error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fdcfcf;
+  margin: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 100px;
+  border: 2px #b10101 solid;
+  display: none;
+}
+
 .optionName {
   font-size: 1.17em;
   pointer-events: none;

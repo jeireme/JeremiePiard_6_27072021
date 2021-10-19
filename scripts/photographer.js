@@ -17,7 +17,7 @@ export default class Photographer {
             let photographer = document.createElement('div');
             photographer.className = `photographer ${this.id}`;
             photographer.innerHTML = ` 
-                <div class="profile" aria-label="Profil de ${this.name}">
+                <div class="profile">
                     <a href="medias.html" class="profile__picture profileLink" id="${this.id}"  aria-label="Accéder au profil de ${this.name}">
                         <img src="img/Photographers-md/${this.portrait}" alt="Photo de profil de ${this.name}">
                         <h2 class="profile__name">${this.name}</h2>

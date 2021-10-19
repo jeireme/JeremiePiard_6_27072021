@@ -15,44 +15,49 @@
 
 <body id="index">
     <div class="skip">
-        <a href="#profiles" aria-label="Passer aux profils de photographes" class="skip__btn" id="skip_btn">Passer au contenu</a>
+        <a href="#profiles" class="skip__btn" id="skip_btn">Passer au contenu</a>
     </div>
 
-    <header class="header" aria-label="Navigation principale">
-        <a href="index.html" aria-label="Recharger la page d'accueil"><img src="img/Logo/logo.svg" class="header__logo" alt="Logo du site FishEye"></a>
-        <div tabindex="0" class="filters filters--home" id="filters" aria-label="Filtre des profils par catégorie :">
+    <header class="header">
+        <a href="index.html"><img src="img/Logo/logo.svg" class="header__logo" alt="Logo du site"></a>
+        <div class="filters filters--home" id="filters" aria-label="Filtrer les profils par catégorie">
 
             <input type="checkbox" class="filters__tags" id="portrait" name="portrait">
-            <label for="portrait" class="filters__tags__name cursorPointer">#Portrait</label>
+            <label for="portrait" class="filters__tags__name cursorPointer" aria-label="Filtre portrait">#Portrait</label>
             
             <input type="checkbox" class="filters__tags" id="art" name="art">
-            <label for="art" class="filters__tags__name cursorPointer">#Art</label>
+            <label for="art" class="filters__tags__name cursorPointer" aria-label="Filtre art">#Art</label>
             
             <input type="checkbox" class="filters__tags" id="fashion" name="fashion">
-            <label for="fashion" class="filters__tags__name cursorPointer">#Fashion</label>
+            <label for="fashion" class="filters__tags__name cursorPointer" aria-label="Filtre fashion">#Fashion</label>
             
             <input type="checkbox" class="filters__tags" id="architecture" name="architecture">
-            <label for="architecture" class="filters__tags__name cursorPointer">#Architecture</label>
+            <label for="architecture" class="filters__tags__name cursorPointer" aria-label="Filtre architecture">#Architecture</label>
             
             <input type="checkbox" class="filters__tags" id="travel" name="travel">
-            <label for="travel" class="filters__tags__name cursorPointer">#Travel</label>
+            <label for="travel" class="filters__tags__name cursorPointer" aria-label="Filtre voyage">#Travel</label>
             
             <input type="checkbox" class="filters__tags" id="sport" name="sport">
-            <label for="sport" class="filters__tags__name cursorPointer">#Sport</label>
+            <label for="sport" class="filters__tags__name cursorPointer" aria-label="Filtre sport">#Sport</label>
             
             <input type="checkbox" class="filters__tags" id="animals" name="animals">
-            <label for="animals" class="filters__tags__name cursorPointer">#Animals</label>
+            <label for="animals" class="filters__tags__name cursorPointer" aria-label="Filtre animaux">#Animals</label>
             
             <input type="checkbox" class="filters__tags" id="events" name="events">
-            <label for="events" class="filters__tags__name cursorPointer">#Events</label>
+            <label for="events" class="filters__tags__name cursorPointer" aria-label="Filtre évènements">#Events</label>
 
         </div>
         <h1 tabindex="0" class="header__title">Nos photographes</h1>
     </header>
 
     <main>
-        <section id="profiles" aria-label="Profils des photographes"></section>
+        <section id="profiles"></section>
     </main>
+
+    <div id="error">
+        <h2>La connexion au serveur a été interrompue</h2>
+        <p>Vous n'êtes pas connecté à internet, veuillez vérifier votre connexion.</p>
+    </div>
 
     <script src="scripts/main.js" type="module"></script>
 </body>
