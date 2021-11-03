@@ -1,7 +1,6 @@
 import Photographer from './photographer.js';
 import Medias from './medias.js';
 
-
 let fullscreen;
 let fullscreenTitle;
 let fullscreenImg;
@@ -30,7 +29,6 @@ export default class DisplayManager {
     }
 
     home() {
-        console.log("ok");
         for (let obj of this.profiles) {
             let photographer = new Photographer(obj);
             photographer.display("homepage");
@@ -47,8 +45,6 @@ export default class DisplayManager {
                 sessionStorage.setItem('id', this.id);
             });
         }
-
-        // document.getElementById("skip__btn").addEventListener("click", onSkip);
     }
 
     medias() {
@@ -138,10 +134,6 @@ export default class DisplayManager {
             for (let media of medias) media.appendChild()
         }
     }
-}
-
-function onSkip(event) {
-    document.getElementById("photographer").focus();
 }
 
 function openForm(event) {

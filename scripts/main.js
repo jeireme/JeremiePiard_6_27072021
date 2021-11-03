@@ -31,6 +31,7 @@ class Main {
     }
 }
 
+// we fetch datas when the page is loaded
 document.addEventListener('DOMContentLoaded', () => {
     new Main();
 });
