@@ -3,8 +3,8 @@
 - L'objectif était de créer un réseau social de photographes accessible aux personnes en situation de handicap
 - Pour visiter le site internet, suivez ce [lien](https://jeireme.github.io/JeremiePiard_6_27072021)
 
-![maquette fisheye1](https://puu.sh/IcGA2/47c4fd3b41.jpg)
-![maquette fisheye2](https://puu.sh/IcGFU/4e0f83e044.jpg)
+![maquette fisheye1](https://i.ibb.co/jWf8S7t/preview1full.jpg)
+![maquette fisheye2](https://i.ibb.co/MScsTQD/preview2full.jpg)
 
 # Éléments fournis par l'entreprise
 - Maquettes desktop et mobile
